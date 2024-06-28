@@ -47,7 +47,6 @@
   border-radius: 10px;
   border: 1px solid white;
   transform: rotate(45deg);
-  overflow: hidden;
 }
 
 /* main_banner */
@@ -159,6 +158,7 @@
   bottom: 154px;
   right: 120px;
 }
+
 .scroll_indicator_container span {
   text-transform: capitalize;
   color: #fff;
@@ -173,6 +173,53 @@
   height: 1080px;
   position: relative;
   background: #f0f0f0;
+}
+
+.AM_pager_container {
+  width: 30px;
+  height: 434px;
+  z-index: 10;
+}
+
+.AM_pager {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 70px;
+  position: absolute;
+  top: 50%;
+  left: 60px;
+  transform: translateX(-20%);
+  transform: translateY(-50%);
+}
+
+.AM_pager li:nth-child(2) {
+  width: 30px;
+  height: 30px;
+  border-radius: 100%;
+  background: #888;
+  text-indent: -9999px;
+}
+
+.AM_pager li {
+  width: 30px;
+  height: 30px;
+  border-radius: 100%;
+  background: #d9d9d9;
+  z-index: 10;
+  text-indent: -9999px;
+}
+
+.AM_menu_toggle_btn{
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  border: 1px solid #888;
+  position: absolute;
+  top: 50%;
+  right: 70px;
+  transform: rotate(45deg) translateY(-50%);
 }
 
 .About_Me_contents {
@@ -251,6 +298,15 @@
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
+.rh_inner{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  margin-bottom: 50px;
+}
+
 .rh_inner_text {
   flex-direction: column;
   color: white;
@@ -262,7 +318,12 @@
   margin-top: 30px;
 }
 
+.mbti_toggle_btn{
+  width: 272px;
+}
+
 .mbti_toggle_btn input {
+  position: relative;
   margin-top: 50px;
   width: 272px;
   height: 76px;
@@ -274,29 +335,51 @@
   color: #444;
   border: none;
   cursor: pointer;
-  &::before {
-    border: 1px solid #f00;
-    content : "1";
-    margin-top: 50px;
-    width: 272px;
-    height: 76px;
-    padding: 20px 90px;
-    font-size: 25px;
-    border-radius: 50px;
-    text-align: center;
-    background: #4b4b4b;
-    border: none;
-    z-index: 100;
-  }
+  z-index: 1;
 }
 
-.AM_pager_container {
+.mbti_btn_shadow{
+  position: absolute;
+  width: 272px;
+  height: 76px;
+  bottom: -12px;
+  padding: 20px 90px;
+  font-size: 25px;
+  border-radius: 50px;
+  text-align: center;
+  background: #4b4b4b;
+  border: none;
+  z-index: 0;
+}
+
+/* Hobbies */
+#Hobbies{
+  width: 100%;
+  height: 1080px;
+  position: relative;
+  background: #393939;
+}
+
+.H_menu_toggle_btn{
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  border: 1px solid #888;
+  position: absolute;
+  top: 50%;
+  right: 70px;
+  transform: rotate(45deg) translateY(-50%);
+}
+
+.H_pager_container {
+  position: absolute;
   width: 30px;
   height: 434px;
   z-index: 10;
+  top: ;
 }
 
-.AM_pager {
+.H_pager {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -305,11 +388,10 @@
   position: absolute;
   top: 50%;
   left: 60px;
-  transform: translateX(-20%);
-  transform: translateY(-50%);
+  transform: translateX(-20%) translateY(30%);
 }
 
-.AM_pager li:nth-child(2) {
+.H_pager li:nth-child(2) {
   width: 30px;
   height: 30px;
   border-radius: 100%;
@@ -317,7 +399,7 @@
   text-indent: -9999px;
 }
 
-.AM_pager li {
+.H_pager li {
   width: 30px;
   height: 30px;
   border-radius: 100%;
