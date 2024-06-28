@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Who am I?</title>
+    <!-- favicon 아이콘(브라우저 탭 왼쪽에 뜨는 아이콘)설정 -->
+    <link rel="shortcut icon" href="../img/img/Logo.ico" />
+    <!-- 위에거는 어디까지나 안드로이드에만 적용됨. 애플에도 적용하고 싶다면 다음과 같이 코드 작성 -->
+    <link rel="apple-touch-icon-precomposed" href="../img/img/Logo.ico" />
+    <link rel="stylesheet" href="./style.css" />
+    <script defer src="script.js"></script>
+    <script
+      src="https://kit.fontawesome.com/a7e457e146.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <div id="main">
+      <!-- gnb -->
+      <header class="gnb_container">
+        <div class="gnb_logo"></div>
+        <ul class="gnb">
+          <li>
+            <a href="">Info</a>
+          </li>
+          <li>
+            <a href="">Hobbies</a>
+          </li>
+          <li>
+            <a href="">Vision</a>
+          </li>
+          <li>
+            <a href="">Contact</a>
+          </li>
+          <li class="gnb_toggle_btn"></li>
+        </ul>
+      </header>
+      <!-- main -->
+      <div class="main_banner">
+        <video class="bg_video" autoplay muted loop>
+          <source
+            src="../img/img/vecteezy_vintage-abstract-black-white-wave-background_26305040.mp4"
+            type="video/mp4"
+          />
+        </video>
+        <div class="main_pager_container">
+          <ul class="main_pager">
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+          </ul>
+        </div>
+        <p class="main_title">
+          <span>Go Straight ,</span>
+          <span>Turn Right.</span>
+        </p>
+        <div class="scroll_indicator_container">
+          <span>scroll</span>
+          <img src="../img/img/Indicator.png" alt="scrollIndicator" />
+        </div>
+      </div>
+
+      <div id="About_Me">
+        <div class="main_pager_container">
+          <ul class="AM_pager">
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+          </ul>
+        </div>
+        <div class="About_Me_contents">
+          <div class="AM_title">
+            <h1>//전진우</h1>
+            <span class="AM_logo"></span>
+          </div>
+          <div class="AM_text_inner">
+            <p>
+              <span style="font-family: IBM Plex Mono, monospace;" class = "AM_inner_title">
+                About Me<span style= "color: #2d8599">()</span>
+                { <br /><br />
+              </span>
+                <div class="AM_inner_info">
+                  <span>
+                    <span>생년월일 =
+                      <span style="color : #2d8599; font-family: IBM Plex Mono">
+                        001110100011</span><span style = "color : #c2c2c2">;</span>
+                      </span> 
+                    </span><br /><br />
+                  <span>전공 
+                    <span style = "color : #c2c2c2">= 컴퓨터공학전공;</span>
+                  </span><br /><br />
+                  <span>거주지 
+                    <span style = "color : #c2c2c2">= 서울특별시 강동구;</span>
+                  </span><br /><br />
+                  <span>최종학력 
+                    <span style = "color : #c2c2c2">= 대학교 2학년 (휴학중);</span>
+                  </span><br />
+                </div>
+                <span style="font-family: IBM Plex Mono, monospace;">}</span>
+            </p>
+          </div>
+          <div class="right_half">
+            <div class="rh_inner">
+              <h1 class="rh_title">MBTI</h1>
+              <div class="rh_inner_text">
+                <span>제 MBTI는 뭘까요?</span><br>
+                <span>하단의 버튼을 눌러 확인해보세요!</span>
+              </div>
+              <div class="mbti_img">
+                <img src="../img/img/image 2.png" alt="">
+              </div>
+              <div class="mbti_toggle_btn">
+                <input type="button" value="상세정보">
+                <!-- <div class="mbti_btn_shadow"></div> -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
