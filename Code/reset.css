@@ -8,6 +8,36 @@
 
 @import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap");
 
+@import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css);
+
+@font-face {
+  font-family: "Nexon Lv1 Gothic";
+  src: url("//ecimg.cafe24img.com/pg1108b74246837003/tyler10034/Chef/NEXON%20Lv1%20Gothic%20Low%20OTF.woff")
+    format("woff");
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "Nexon Lv1 Gothic";
+  src: url("//ecimg.cafe24img.com/pg1108b74246837003/tyler10034/Chef/NEXON%20Lv1%20Gothic%20OTF%20Bold.woff")
+    format("woff");
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: "Kiona";
+  src: url("../Fonts/Fonts/Kiona-Regular.ttf")
+    format("ttf");
+  font-weight: 400;
+}
+
+
+
+:root{
+  --text_point_color : #2d8599;
+  --toned_text : #c2c2c2;
+}
+
 * {
   margin: 0;
   padding: 0;
