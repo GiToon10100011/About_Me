@@ -48,8 +48,8 @@
   border: 1px solid white;
   transform: rotate(45deg);
   transition: 0.5s ease-in-out;
-  &:hover{
-    transform: rotate(270deg);
+  &:hover {
+    transform: rotate(-180deg);
   }
 }
 
@@ -228,9 +228,10 @@
   position: absolute;
   top: 50%;
   right: 70px;
-  transform: rotate(45deg) translateY(-50%);
-  &:hover{
-    transform: rotate(270deg);
+  transform: rotate(45deg);
+  transition: 0.5s ease-in-out;
+  &:hover {
+    transform: rotate(-180deg);
   }
 }
 
@@ -371,6 +372,24 @@
 
 .mbti_toggle_btn {
   width: 272px;
+  .mbti_btn_shadow {
+    position: absolute;
+    width: 272px;
+    height: 76px;
+    bottom: -12px;
+    padding: 20px 90px;
+    font-size: 25px;
+    border-radius: 50px;
+    text-align: center;
+    background: #4b4b4b;
+    border: none;
+    z-index: 0;
+    opacity: 1;
+    transition: all 0.1s ease-in-out;
+  }
+  &:hover .mbti_btn_shadow {
+    opacity: 0;
+  }
 }
 
 .mbti_toggle_btn input {
@@ -387,20 +406,6 @@
   border: none;
   cursor: pointer;
   z-index: 1;
-}
-
-.mbti_btn_shadow {
-  position: absolute;
-  width: 272px;
-  height: 76px;
-  bottom: -12px;
-  padding: 20px 90px;
-  font-size: 25px;
-  border-radius: 50px;
-  text-align: center;
-  background: #4b4b4b;
-  border: none;
-  z-index: 0;
 }
 
 /* Hobbies */
@@ -420,7 +425,11 @@
   position: absolute;
   top: 50%;
   right: 70px;
-  transform: rotate(45deg) translateY(-50%);
+  transform: rotate(45deg);
+  transition: 0.5s ease-in-out;
+  &:hover {
+    transform: rotate(-180deg);
+  }
 }
 
 .H_pager_container {
@@ -575,7 +584,12 @@
   position: absolute;
   top: 50%;
   right: 70px;
-  transform: rotate(45deg) translateY(-50%);
+  transform: rotate(45deg);
+  transform: rotate(45deg);
+  transition: 0.5s ease-in-out;
+  &:hover {
+    transform: rotate(-180deg);
+  }
 }
 
 .V_pager_container {
@@ -745,7 +759,11 @@ footer {
   position: absolute;
   top: 50%;
   right: 70px;
-  transform: rotate(45deg) translateY(-50%);
+  transform: rotate(45deg);
+  transition: 0.5s ease-in-out;
+  &:hover {
+    transform: rotate(-180deg);
+  }
 }
 
 .F_pager_container {
