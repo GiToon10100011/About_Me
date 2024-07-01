@@ -1,5 +1,10 @@
 @import url("./reset.css");
 
+#wrapper {
+  width: 100%;
+  height: 100%;
+}
+
 /* Main_page */
 
 #main {
@@ -25,7 +30,7 @@
   margin-left: 40px;
 }
 
-.gnb {
+.gnbDesktop {
   width: 882px;
   height: 56px;
   margin-right: 40px;
@@ -36,7 +41,11 @@
   color: white;
 }
 
-.gnb li {
+.gnbMobile {
+  display: none;
+}
+
+.gnbDesktop li {
   font-size: 30px;
   letter-spacing: 4px;
 }
@@ -58,7 +67,7 @@
   position: relative;
   width: 100%;
   height: 916px;
-  background-image: url(../img/img/bg.png);
+  /* background-image: url(../img/img/bg.png); */
   z-index: 0;
   &::before {
     content: "";
@@ -328,6 +337,10 @@
 
 .inner_info_last {
   font-family: IBM Plex Mono, monospace;
+}
+
+#mobile_mbti{
+  display: none;
 }
 
 /* About_Me right half */
@@ -984,3 +997,308 @@ textarea {
     padding-top: 20px;
   }
 }
+
+@media screen and (max-width: 1190px) and (min-width: 360px) {
+  #wrapper {
+    width: 100%;
+    overflow-x: hidden;
+  }
+
+  #main {
+    width: 100%;
+    height: 380px;
+  }
+
+  .gnb_container {
+    position: relative;
+    width: 100%;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.05);
+  }
+
+  .gnbDesktop {
+    display: none;
+  }
+
+  .gnbMobile {
+    position: absolute;
+    width: 342px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    li:first-child {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      width: 100px;
+      height: 30px;
+      span {
+        font-family: "Montserrat";
+        font-size: 24px;
+        color: white;
+      }
+    }
+  }
+  .gnb_toggle_btn {
+    width: 24px;
+    height: 24px;
+    border-radius: 8px;
+    border: 2px solid white;
+  }
+
+  .gnb_logo {
+    display: none;
+  }
+
+  .gnb_logo_mobile {
+    width: 20px;
+    height: 20px;
+    color: white;
+    background: url("../img/img/Logo.png") center/cover no-repeat;
+  }
+
+  .main_banner {
+    width: 100%;
+    height: 320px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+  }
+
+  .main_title {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    span {
+      font-size: 30px;
+    }
+
+    span:first-child {
+      top: 120px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    span:last-child {
+      right: 50%;
+      bottom: 120px;
+      transform: translateX(50%);
+    }
+  }
+  .main_pager_container {
+    display: none;
+  }
+
+  .main_pager {
+    display: none;
+  }
+
+  .scroll_indicator_container {
+    width: 52px;
+    height: 30px;
+    gap: 8px;
+    position: absolute;
+    bottom: 18px;
+    right: 24px;
+    span {
+      font-size: 10px;
+    }
+    img {
+      width: 18px;
+      height: 30px;
+    }
+  }
+
+  #About_Me_container{
+    width: 100%;
+    height: 760px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  #About_Me {
+    width: 100%;
+    height: 380px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+  }
+
+  .AM_menu_toggle_btn {
+    width: 24px;
+    height: 24px;
+    border-radius: 8px;
+    right: 24px;
+    z-index: 10;
+  }
+
+  .About_Me_contents {
+    width: 344px;
+    height: 284px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: none;
+    background: none;
+    box-shadow: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    .AM_logo {
+      width: 26px;
+      height: 26px;
+      color: #888;
+      background: url("../img/img/AM_Logo.png");
+    }
+  }
+
+  .AM_title {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 64px;
+    gap: 26px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #888;
+    box-shadow: 0px 4px 4px -4px rgba(0, 0, 0, 0.25);
+    h1 {
+      font-size: 30px;
+      color: #888;
+    }
+  }
+
+  .AM_inner_text{
+    position: absolute;
+    top: 84px;
+    left: 0;
+    margin: 0;
+    width: 100%;
+    height: 200px;
+    font-size: 14px;
+    line-height: 18px;
+    color: #888;
+    padding-bottom: 24px;
+    border-bottom: 1px solid #888;
+    box-shadow: 0px 4px 4px -4px rgba(0, 0, 0, 0.25);
+    .AM_inner_info{
+      margin-left: 26px;
+    }
+  }
+
+  .inner_info_birth_colon {
+    color: #a5a5a5;
+  }
+  
+  .inner_info_major {
+    color: #a5a5a5;
+  }
+  
+  .inner_info_address {
+    color: #a5a5a5;
+  }
+  
+  .inner_info_scholar {
+    color: #a5a5a5;
+  }
+  
+
+  #About_Me .right_half {
+    display: none;
+  }
+
+  #mobile_mbti {
+    display: block;
+    width: 100%;
+    height: 380px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: #888;
+    position: relative;
+  }
+  .mm_menu_toggle_btn {
+    display: block;
+    width: 24px;
+    height: 24px;
+    border: 2px solid #888;
+    border-radius: 8px;
+    position: absolute;
+    top: 50%;
+    right: 24px;
+    z-index: 100;
+    transform: rotate(45deg);
+    transition: 0.5s ease-in-out;
+    &:hover {
+      transform: rotate(-180deg);
+    }
+  }
+
+  .mm_inner{
+    width: 240px;
+    height: 236px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 12px;
+    font-family: "Noto Sans KR";
+    .mm_title{
+      width: 100px;
+      height: 44px;
+      font-size: 30px;
+      color: white;
+      span{
+        color: var(--mobile_point_color);
+      }
+    }
+    .mm_inner_text{
+      color: white;
+      font-size: 14px;
+      font-weight: 300;
+    }
+  }
+  img{
+    width: 116px;
+    height: 156px;
+  }
+  .mbti_toggle_btn{
+    width: 136px;
+    height: 42px;
+    input{
+      padding: 20px 90px;
+      font-size: 14px;
+      width: 136px;
+      height: 38px;
+    }
+    .mbti_btn_shadow{
+      padding: 20px 90px;
+      font-size: 14px;
+      width: 136px;
+      height: 38px;
+    }
+  }
+
+}
+
+
+

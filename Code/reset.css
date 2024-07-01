@@ -26,16 +26,14 @@
 
 @font-face {
   font-family: "Kiona";
-  src: url("../Fonts/Fonts/Kiona-Regular.ttf")
-    format("ttf");
+  src: url("../Fonts/Fonts/Kiona-Regular.ttf") format("ttf");
   font-weight: 400;
 }
 
-
-
-:root{
-  --text_point_color : #2d8599;
-  --toned_text : #c2c2c2;
+:root {
+  --text_point_color: #2d8599;
+  --toned_text: #c2c2c2;
+  --mobile_point_color: #3c99af;
 }
 
 * {

@@ -21,7 +21,7 @@
         <!-- gnb -->
         <header class="gnb_container">
           <div class="gnb_logo"></div>
-          <ul class="gnb">
+          <ul class="gnbDesktop">
             <li>
               <a href="#About_Me">Info</a>
             </li>
@@ -33,6 +33,14 @@
             </li>
             <li>
               <a href="#Footer">Contact</a>
+            </li>
+            <li class="gnb_toggle_btn"></li>
+          </ul>
+
+          <ul class="gnbMobile">
+            <li>
+              <span>GSTR</span>
+              <div class="gnb_logo_mobile"></div>
             </li>
             <li class="gnb_toggle_btn"></li>
           </ul>
@@ -64,60 +72,78 @@
           </div>
         </section>
       </div>
-      <section id="About_Me">
-        <div class="AM_menu_toggle_btn"></div>
-        <div class="main_pager_container">
-          <ul class="AM_pager">
-            <li>1</li>
-            <li>2</li>
-            <li>3</li>
-            <li>4</li>
-            <li>5</li>
-          </ul>
-        </div>
-        <article class="About_Me_contents">
-          <div class="AM_title">
-            <h1>//전진우</h1>
-            <span class="AM_logo"></span>
+      <section id="About_Me_container">
+        <article id="About_Me">
+          <div class="AM_menu_toggle_btn"></div>
+          <div class="main_pager_container">
+            <ul class="AM_pager">
+              <li>1</li>
+              <li>2</li>
+              <li>3</li>
+              <li>4</li>
+              <li>5</li>
+            </ul>
           </div>
-          <div class="AM_inner_text">
-            <span class="inner_text_title">
-              About Me<span class="inner_text_paran">()</span> { <br /><br />
-            </span>
-            <div class="AM_inner_info">
-              <span>
-                <span>생년월일 = </span>
-                <span class="inner_info_birth"> 001110100011</span>
-                <span class="inner_info_birth_colon">;</span> </span
-              ><br /><br />
-              <span>전공</span>
-              <span class="inner_info_major">= 컴퓨터공학전공;</span>
-              <br /><br />
-              <span>거주지</span>
-              <span class="inner_info_address">= 서울특별시 강동구;</span>
-              <br /><br />
-              <span>최종학력</span>
-              <span class="inner_info_scholar">= 대학교 2학년 (휴학중);</span>
-              <br />
+          <article class="About_Me_contents">
+            <div class="AM_title">
+              <h1>//전진우</h1>
+              <span class="AM_logo"></span>
             </div>
-            <span class="inner_info_last">}</span>
-          </div>
-          <article class="right_half">
-            <div class="rh_inner">
-              <h1 class="rh_title">MBTI</h1>
-              <div class="rh_inner_text">
-                <span>제 MBTI는 뭘까요?</span><br />
-                <span>하단의 버튼을 눌러 확인해보세요!</span>
+            <div class="AM_inner_text">
+              <span class="inner_text_title">
+                About Me<span class="inner_text_paran">()</span> { <br /><br />
+              </span>
+              <div class="AM_inner_info">
+                <span>
+                  <span>생년월일 = </span>
+                  <span class="inner_info_birth"> 001110100011</span>
+                  <span class="inner_info_birth_colon">;</span> </span
+                ><br /><br />
+                <span>전공</span>
+                <span class="inner_info_major">= 컴퓨터공학전공;</span>
+                <br /><br />
+                <span>거주지</span>
+                <span class="inner_info_address">= 서울특별시 강동구;</span>
+                <br /><br />
+                <span>최종학력</span>
+                <span class="inner_info_scholar">= 대학교 2학년 (휴학중);</span>
+                <br />
               </div>
-              <div class="mbti_img">
-                <img src="../img/img/image 2.png" alt="" />
-              </div>
-              <div class="mbti_toggle_btn">
-                <input type="button" value="상세정보" />
-                <div class="mbti_btn_shadow"></div>
-              </div>
+              <span class="inner_info_last">}</span>
             </div>
+            <article class="right_half">
+              <div class="rh_inner">
+                <h1 class="rh_title">MBTI</h1>
+                <div class="rh_inner_text">
+                  <span>제 MBTI는 뭘까요?</span><br />
+                  <span>하단의 버튼을 눌러 확인해보세요!</span>
+                </div>
+                <div class="mbti_img">
+                  <img src="../img/img/image 2.png" alt="" />
+                </div>
+                <div class="mbti_toggle_btn">
+                  <input type="button" value="상세정보" />
+                  <div class="mbti_btn_shadow"></div>
+                </div>
+              </div>
+            </article>
           </article>
+        </article>
+        <article id="mobile_mbti">
+          <div class="mm_menu_toggle_btn"></div>
+          <div class="mm_inner">
+            <h1 class="mm_title"><span>ISFJ</span>-T</h1>
+            <div class="mm_inner_text">
+              <span>용감한 수호자, 실용적인 조력가</span>
+            </div>
+          </div>
+          <div class="mbti_img">
+            <img src="../img/img/image 2.png" alt="" />
+          </div>
+          <div class="mbti_toggle_btn">
+            <input type="button" value="상세정보" />
+            <div class="mbti_btn_shadow"></div>
+          </div>
         </article>
       </section>
       <section id="Hobbies">
@@ -216,7 +242,7 @@
           </div>
         </article>
       </section>
-      <footer id = "Footer">
+      <footer id="Footer">
         <section class="Footer_bg">
           <video class="bg_video" autoplay muted loop>
             <source
