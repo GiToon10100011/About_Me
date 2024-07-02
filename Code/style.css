@@ -339,7 +339,7 @@
   font-family: IBM Plex Mono, monospace;
 }
 
-#mobile_mbti{
+#mobile_mbti {
   display: none;
 }
 
@@ -1122,11 +1122,13 @@ textarea {
     }
   }
 
-  #About_Me_container{
+  #About_Me_container {
     width: 100%;
     height: 760px;
     display: flex;
     flex-direction: column;
+    position: relative;
+    z-index: 1;
   }
 
   #About_Me {
@@ -1184,7 +1186,7 @@ textarea {
     }
   }
 
-  .AM_inner_text{
+  .AM_inner_text {
     position: absolute;
     top: 84px;
     left: 0;
@@ -1197,7 +1199,7 @@ textarea {
     padding-bottom: 24px;
     border-bottom: 1px solid #888;
     box-shadow: 0px 4px 4px -4px rgba(0, 0, 0, 0.25);
-    .AM_inner_info{
+    .AM_inner_info {
       margin-left: 26px;
     }
   }
@@ -1205,26 +1207,24 @@ textarea {
   .inner_info_birth_colon {
     color: #a5a5a5;
   }
-  
+
   .inner_info_major {
     color: #a5a5a5;
   }
-  
+
   .inner_info_address {
     color: #a5a5a5;
   }
-  
+
   .inner_info_scholar {
     color: #a5a5a5;
   }
-  
 
   #About_Me .right_half {
     display: none;
   }
 
   #mobile_mbti {
-    display: block;
     width: 100%;
     height: 380px;
     display: flex;
@@ -1232,8 +1232,9 @@ textarea {
     justify-content: center;
     align-items: center;
     text-align: center;
-    background: #888;
+    background: #646464;
     position: relative;
+    z-index: -1;
   }
   .mm_menu_toggle_btn {
     display: block;
@@ -1252,53 +1253,68 @@ textarea {
     }
   }
 
-  .mm_inner{
+  .mm_inner {
     width: 240px;
-    height: 236px;
+    height: 80px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
     gap: 12px;
+    padding-bottom: 2px;
+    position: relative;
     font-family: "Noto Sans KR";
-    .mm_title{
-      width: 100px;
-      height: 44px;
+    .mm_title {
       font-size: 30px;
       color: white;
-      span{
+      span {
         color: var(--mobile_point_color);
       }
     }
-    .mm_inner_text{
+    .mm_inner_text {
       color: white;
       font-size: 14px;
       font-weight: 300;
     }
   }
-  img{
+
+  img {
+    margin-bottom: 16px;
     width: 116px;
     height: 156px;
   }
-  .mbti_toggle_btn{
+
+  #mobile_mbti .mbti_toggle_btn {
     width: 136px;
     height: 42px;
-    input{
-      padding: 20px 90px;
-      font-size: 14px;
+    position: relative;
+    overflow: visible;
+    .mbti_mobile_btn {
+      /* margin-top: 32px; */
       width: 136px;
-      height: 38px;
-    }
-    .mbti_btn_shadow{
-      padding: 20px 90px;
-      font-size: 14px;
-      width: 136px;
-      height: 38px;
+      height: 42px;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      position: relative;
+      background: #d1d1d1;
+      &::before {
+        content: "";
+        position: absolute;
+        width: 136px;
+        height: 42px;
+        bottom: -6px;
+        left: 0;
+        background: #444;
+        border-radius: 50px;
+        z-index: -1;
+        opacity: 1;
+        transition: all 0.1s;
+      }
+      &:hover::before {
+        opacity: 0;
+      }
     }
   }
-
 }
-
-
-
