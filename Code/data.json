@@ -1,0 +1,19 @@
+{
+  "data": [
+    {
+      "id": 1,
+      "first": "Go Straight ,",
+      "second": "Turn Right."
+    },
+    {
+      "id": 2,
+      "first": "まっすぐ行って",
+      "second": "右に曲がります"
+    },
+    {
+      "id": 3,
+      "first": "전진하고 , ",
+      "second": "우회전 하세요."
+    }
+  ]
+}
