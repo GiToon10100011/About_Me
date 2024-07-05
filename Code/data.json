@@ -2,13 +2,14 @@
   "data": [
     {
       "id": 1,
-      "first": "Go Straight ,",
-      "second": "Turn Right."
+      "first": "まっすぐ行って",
+      "second": "右に曲がります"
+      
     },
     {
       "id": 2,
-      "first": "まっすぐ行って",
-      "second": "右に曲がります"
+      "first": "Go Straight ,",
+      "second": "Turn Right."
     },
     {
       "id": 3,

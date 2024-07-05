@@ -4,18 +4,63 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Who am I?</title>
-    <!-- favicon 아이콘(브라우저 탭 왼쪽에 뜨는 아이콘)설정 -->
     <link rel="shortcut icon" href="../img/img/Logo.ico" />
-    <!-- 위에거는 어디까지나 안드로이드에만 적용됨. 애플에도 적용하고 싶다면 다음과 같이 코드 작성 -->
     <link rel="apple-touch-icon-precomposed" href="../img/img/Logo.ico" />
-    <link rel="stylesheet" href="./style.css" />
-    <script defer type = "module" src="script.js"></script>
+
+    <!-- GSAP -->
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+
+    <!-- fontawesome -->
     <script
       src="https://kit.fontawesome.com/a7e457e146.js"
       crossorigin="anonymous"
     ></script>
+
+    <!-- Custom CSS & js -->
+    <link rel="stylesheet" href="./style.css" />
+    <script defer type = "module" src="script.js"></script>
   </head>
   <body>
+    <div id="loading_screen">
+      <div class="loader">
+        <div class="loader-1 bar"></div>
+        <div class="loader-2 bar"></div>
+      </div>
+
+      <div class="counter">
+        <div class="counter-1 digit">
+          <div class="num">0</div>
+          <div class="num num1offset1">1</div>
+        </div>
+        <div class="counter-2 digit">
+          <div class="num">0</div>
+          <div class="num1offset2">1</div>
+          <div class="num">2</div>
+          <div class="num">3</div>
+          <div class="num">4</div>
+          <div class="num">5</div>
+          <div class="num">6</div>
+          <div class="num">7</div>
+          <div class="num">8</div>
+          <div class="num">9</div>
+          <div class="num">0</div>
+          <div class="num">0</div>
+        </div>
+        <div class="counter-3 digit">
+          <div class="num">0</div>
+          <div class="num">1</div>
+          <div class="num">2</div>
+          <div class="num">3</div>
+          <div class="num">4</div>
+          <div class="num">5</div>
+          <div class="num">6</div>
+          <div class="num">7</div>
+          <div class="num">8</div>
+          <div class="num">9</div>
+          <div class="num">0</div>
+        </div>
+      </div>
+    </div>
     <div id="wrapper">
       <div id="main">
         <!-- gnb -->
@@ -50,6 +95,10 @@
         <!-- main -->
 
         <ul class="lnbMain">
+          <div class="lnb_close_btn">
+            <span>Close</span>
+            <div class="lnb_logo"></div>
+          </div>
           <li><a href="#About_Me">Info</a></li>
           <li><a href="#Hobbies">Hobbies</a></li>
           <li><a href="#Vision">Vision</a></li>
