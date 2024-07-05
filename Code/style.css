@@ -10,6 +10,8 @@
 #main {
   width: 100%;
   height: 1080px;
+  position: relative;
+  overflow-x: hidden;
 }
 
 /* gnb */
@@ -21,6 +23,7 @@
   justify-content: space-between;
   align-items: center;
   background: #111;
+  box-shadow: 0 0 4px 4px rgba(0, 0, 0, 0.2);
 }
 
 .gnb_logo {
@@ -48,6 +51,37 @@
 .gnbDesktop li {
   font-size: 30px;
   letter-spacing: 4px;
+}
+
+.lnbMain {
+  position: absolute;
+  top: 0;
+  left: 100%;
+  width: 50%;
+  height: 100%;
+  background: #222;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 110px;
+  gap: 80px;
+  transition: all 0.3s;
+  li {
+    font-size: 80px;
+    color: transparent;
+    a {
+      font-weight: 700;
+      -webkit-text-stroke: 1px rgb(245, 245, 245);
+      transition: 0.1s all;
+      &:hover {
+        color: rgb(245, 245, 245);
+      }
+    }
+  }
+  &.active {
+    left: 50%;
+  }
 }
 
 .gnb_toggle_btn {
@@ -114,7 +148,7 @@
   left: 0;
   transition: all 1s;
   opacity: 0;
-  &.active{
+  &.active {
     opacity: 1;
   }
 }
@@ -125,7 +159,7 @@
   right: 0;
   transition: all 1s;
   opacity: 0;
-  &.active{
+  &.active {
     opacity: 1;
   }
 }
@@ -183,7 +217,7 @@
   bottom: 154px;
   right: 120px;
   transition: opacity 0.7s;
-  &.active{
+  &.active {
     opacity: 0;
   }
 }
@@ -1187,18 +1221,20 @@ textarea {
   /* Main */
 
   #main {
+    position: relative;
     width: 100%;
     height: 380px;
   }
 
   .gnb_container {
+    z-index: 200;
     position: relative;
     width: 100%;
     height: 60px;
     display: flex;
     justify-content: center;
     align-items: center;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.05);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.2);
   }
 
   .gnbDesktop {
@@ -1227,6 +1263,34 @@ textarea {
       }
     }
   }
+
+  .lnbMain {
+    position: absolute;
+    top: 60px;
+    left: 100%;
+    width: 100%;
+    height: 320px;
+    z-index: 101;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 24px;
+    gap: 20px;
+    transition: all 0.3s;
+    li {
+      font-size: 26px;
+      a {
+        transition: 0.1s all;
+        &:hover {
+          color: rgb(245, 245, 245);
+        }
+      }
+    }
+    &.active {
+      left: 0;
+    }
+  }
+
   .gnb_toggle_btn {
     width: 24px;
     height: 24px;
@@ -1867,7 +1931,6 @@ textarea {
     }
   }
 
-
   .F_title_img {
     width: 150px;
     height: 150px;
@@ -1922,7 +1985,7 @@ textarea {
       bottom: -120px;
       cursor: pointer;
     }
-    &::placeholder{
+    &::placeholder {
       color: rgba(255, 255, 255, 0.8);
     }
   }
@@ -1932,23 +1995,22 @@ textarea {
     margin-right: 58px;
     margin-top: 24px;
   }
-  
+
   #Email {
     width: 100%;
     margin-top: 24px;
   }
-  
+
   #Mobile {
     width: 100%;
     margin-top: 24px;
   }
 
-  textarea{
+  textarea {
     width: 100%;
     height: 60px;
-    &::placeholder{
+    &::placeholder {
       padding: 0;
     }
   }
-
 }

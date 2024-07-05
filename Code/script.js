@@ -3,7 +3,6 @@ const first_Title = document.querySelector(".firstTitle")
 const second_Title = document.querySelector(".secondTitle")
 const mainTitle = document.querySelector(".main_title")
 
-console.log(first_Title, second_Title);
 
 let jsonData;
 
@@ -14,7 +13,6 @@ fetch("./data.json")
     // 구조 분해 할당 -> 배열이나 객체의 속성을 해체해서 그 값을 개별 변수에 담을 수 있게함.
     const [firstData, ...otherData] = data.data;
     jsonData = data.data;
-    console.log(firstData);
     first_Title.innerHTML = firstData.first;
     second_Title.innerHTML = firstData.second;
     first_Title.classList.add("active");
@@ -62,3 +60,25 @@ window.addEventListener("scroll", () => {
 });
 
 startSlideShow();
+
+const gnbToggleBtn = document.querySelector(".gnb_toggle_btn");
+const M_gnbToggleBtn = document.querySelector(".gnbMobile .gnb_toggle_btn");
+
+gnbToggleBtn.addEventListener("click", () => {
+  const lnbMain = document.querySelector(".lnbMain");
+  console.log("clicked");
+  lnbMain.classList.toggle("active");
+})
+
+M_gnbToggleBtn.addEventListener("click", () => {
+  
+  const M_Header = document.querySelector(".gnb_container");
+  const lnbMain = document.querySelector(".lnbMain");
+  M_Header.style.background = "#222"
+  console.log("clicked");
+  lnbMain.classList.toggle("active");
+  // active클래스를 보유중인지 확인하는 contains 속성
+  if(!lnbMain.classList.contains("active")){
+    M_Header.style.background = "#111";
+  }
+})
