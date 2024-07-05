@@ -3,6 +3,23 @@
 #wrapper {
   width: 100%;
   height: 100%;
+  overflow-x : hidden;
+}
+
+/* Intersecting Pages */
+.scrl:nth-of-type(odd){
+  transform : translateX(400%);
+  transition : transform 1s ease;
+  &.show{
+    transform : translateX(0);
+  }
+}
+.scrl:nth-of-type(even){
+  transform : translateX(-400%);
+  transition : transform 1s ease;
+  &.show{
+    transform : translateX(0);
+  }
 }
 
 /* Main_page */
