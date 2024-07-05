@@ -1,9 +1,7 @@
 
-const main_Title = document.querySelector(".main_title");
-console.log(main_Title);
-
 const first_Title = document.querySelector(".firstTitle")
 const second_Title = document.querySelector(".secondTitle")
+const mainTitle = document.querySelector(".main_title")
 
 console.log(first_Title, second_Title);
 
@@ -17,9 +15,10 @@ fetch("./data.json")
     const [firstData, ...otherData] = data.data;
     jsonData = data.data;
     console.log(firstData);
-    first_Title.innerText = firstData.first;
-    second_Title.innerText = firstData.second;
-    startSlideShow();
+    first_Title.innerHTML = firstData.first;
+    second_Title.innerHTML = firstData.second;
+    first_Title.classList.add("active");
+    second_Title.classList.add("active");
   });
 
 // 언제나 바꿔칠 수 있도록 호이스팅, 재선언, 등이 가능한 let을 사용
@@ -29,12 +28,19 @@ let titleInterval;
 let isTransitioning = false;
 
 const updateTitle = (i) => {
-  first_Title.innerText = jsonData[i].first;
-  second_Title.innerText = jsonData[i].second;
+  first_Title.innerHTML = jsonData[i].first;
+  second_Title.innerHTML = jsonData[i].second;
+  first_Title.classList.add("active");
+  second_Title.classList.add("active");
+
+  setTimeout(() => {
+    first_Title.classList.remove("active");
+    second_Title.classList.remove("active");
+  }, 2000)
 };
 
-// startSlideShow가 호출될 때 마다 titleInterval이 생성됨. 이때문에 전에 있던 titleInterval을 제대로 지워줄 필요가 있음. 또한 resetSlideShow를 통해 슬라이드를 2번 시작하게 됨.
 const startSlideShow = () => {
+  // 2초마다 해당 구문을 실행함
   titleInterval = setInterval(() => {
     updateTitle(i);
     i++;
@@ -42,8 +48,17 @@ const startSlideShow = () => {
     if(i >= jsonData.length){
       i = 0;
     }
-  }, 3000);
+  }, 4000);
 };
 
 
+window.addEventListener("scroll", () => {
+  const scroll = document.querySelector(".scroll_indicator_container");
+  if(window.scrollY > 120){
+    scroll.classList.add("active");
+  } else{
+    scroll.classList.remove("active");
+  }
+});
 
+startSlideShow();
