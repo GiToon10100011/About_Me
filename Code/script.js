@@ -20,6 +20,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const numHeight = counter.querySelector(".num").clientHeight;
     const totalDistance =
       (counter.querySelectorAll(".num").length - 1) * numHeight;
+      
     gsap.to(counter, {
       y: -totalDistance,
       duration: duration,
@@ -89,7 +90,7 @@ gsap.to(".loader", {
 gsap.to(".loader", {
   rotate: 45,
   y: 500,
-  x: 2000,
+  x: 4000,
   duration: 1,
   delay: 7,
   ease: "power2.inOut",
@@ -153,6 +154,7 @@ const startSlideShow = () => {
   }, 4000);
 };
 
+// scrollIndicator event
 window.addEventListener("scroll", () => {
   const scroll = document.querySelector(".scroll_indicator_container");
   if (window.scrollY > 120) {
@@ -162,30 +164,53 @@ window.addEventListener("scroll", () => {
   }
 });
 
+window.addEventListener("scroll", () => {
+  const menuToggle = document.querySelector(".scroll_toggle_btn");
+  if (window.scrollY > 200) {
+    menuToggle.classList.add("active");
+    main_gnb.classList.add("unlock");
+  } else {
+    menuToggle.classList.remove("active");
+    main_gnb.classList.remove("unlock");
+  }
+
+  if(lnbMain.classList.contains("active")){
+    main_gnb.classList.remove("unlock");
+  } 
+});
+
 startSlideShow();
 
 // Lnb show Event
 
+const lnbMain = document.querySelector(".lnbMain");
 const gnbToggleBtn = document.querySelector(".gnb_toggle_btn");
 const M_gnbToggleBtn = document.querySelector(".gnbMobile .gnb_toggle_btn");
 const lnb_close_btn = document.querySelector(".lnb_close_btn");
+const main_gnb = document.querySelector(".gnb_container");
+const main_banner = document.querySelector(".main_banner");
+const wrapper_filter = document.querySelector("#wrapper");
+const scroll_menu_btn = document.querySelector(".scroll_toggle_btn");
 
 gnbToggleBtn.addEventListener("click", () => {
-  const lnbMain = document.querySelector(".lnbMain");
-  const lnb_close_btn = document.querySelector(".lnb_close_btn");
   lnbMain.classList.add("active");
 });
 
 lnb_close_btn.addEventListener("click", () => {
-  const lnbMain = document.querySelector(".lnbMain");
   lnbMain.classList.remove("active");
+  main_gnb.style.background = "#111";
+});
+
+scroll_menu_btn.addEventListener("click" , () => {
+  const M_Header = document.querySelector(".gnb_container");
+  lnbMain.classList.add("active");
+  main_gnb.classList.remove("unlock");
+  M_Header.style.background = "#222";
 });
 
 M_gnbToggleBtn.addEventListener("click", () => {
   const M_Header = document.querySelector(".gnb_container");
-  const lnbMain = document.querySelector(".lnbMain");
   M_Header.style.background = "#222";
-  console.log("clicked");
   lnbMain.classList.toggle("active");
   // active클래스를 보유중인지 확인하는 contains 속성
   if (!lnbMain.classList.contains("active")) {
@@ -193,13 +218,8 @@ M_gnbToggleBtn.addEventListener("click", () => {
   }
 });
 
+
 // Page Scroll Show Event
-
-checkWindowHeight();
-
-function checkWindowHeight() {
-  console.log(`window.innerHeight: ${window.innerHeight}`);
-}
 
 const boxes = document.querySelectorAll(".scrl");
 window.addEventListener("scroll", checkBoxes);
@@ -207,8 +227,7 @@ window.addEventListener("scroll", checkBoxes);
 checkBoxes();
 
 function checkBoxes() {
-  const triggerBottom = (window.innerHeight / 5) * 4;
-  console.log(`triggerBottom : ${triggerBottom}`);
+  const triggerBottom = window.innerHeight / 5 * 7;
   boxes.forEach((box) => {
     const topBox = box.getBoundingClientRect().top;
 
@@ -219,3 +238,57 @@ function checkBoxes() {
     }
   });
 }
+
+// 스크롤 이벤트로 인한 앵커태그 위치 재조정
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function(e) {
+    e.preventDefault();
+
+    const targetId = this.getAttribute('href');
+    const targetElement = document.querySelector(targetId);
+    const M_Header = document.querySelector(".gnb_container");
+    const lnbMain = document.querySelector(".lnbMain");
+    lnbMain.classList.remove("active");
+    main_gnb.classList.remove("open");
+    main_banner.classList.remove("open");
+    if (!lnbMain.classList.contains("active")) {
+      M_Header.style.background = "#111";
+    }
+
+    // 모든 섹션 숨기기
+    boxes.forEach(box => {
+      box.classList.remove('show');
+    });
+
+    // 타겟 섹션 보이기
+    targetElement.classList.add('show');
+
+    // 스크롤 이동
+    window.scrollTo({
+      top: targetElement.offsetTop,
+      behavior: 'smooth'
+    });
+  });
+});
+
+// About_Me ToggleEvent
+const mbti_toggle_btn = document.querySelectorAll(".mbti_toggle_btn");
+const right_half = document.querySelector(".right_half");
+const left_half = document.querySelector(".left_half");
+const AM_desc = document.querySelector(".About_Me_desc");
+const AM_content = document.querySelector(".About_Me_contents");
+const MBTI_content = document.querySelector(".MBTI_inner");
+const ani_progress = document.querySelectorAll(".progress-level");
+
+mbti_toggle_btn.forEach((item) => {
+  item.addEventListener("click", () => {
+    right_half.classList.toggle("active");
+    left_half.classList.toggle("active");
+    AM_desc.classList.toggle("active");
+    AM_content.classList.toggle("active");
+    MBTI_content.classList.toggle("active");
+    ani_progress.forEach((items) => {
+      items.classList.toggle("active");
+    });
+  });
+});

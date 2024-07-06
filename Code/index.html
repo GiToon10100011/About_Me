@@ -18,10 +18,10 @@
 
     <!-- Custom CSS & js -->
     <link rel="stylesheet" href="./style.css" />
-    <script defer type = "module" src="script.js"></script>
+    <script defer type="module" src="script.js"></script>
   </head>
   <body>
-    <div id="loading_screen">
+    <!-- <div id="loading_screen">
       <div class="loader">
         <div class="loader-1 bar"></div>
         <div class="loader-2 bar"></div>
@@ -60,8 +60,10 @@
           <div class="num">0</div>
         </div>
       </div>
-    </div>
+    </div> -->
     <div id="wrapper">
+      <div class="scroll_watcher"></div>
+      <div class="scroll_toggle_btn"></div>
       <section id="main">
         <!-- gnb -->
         <header class="gnb_container">
@@ -89,8 +91,6 @@
             </li>
             <li class="gnb_toggle_btn"></li>
           </ul>
-
-          
         </header>
         <!-- main -->
 
@@ -112,18 +112,9 @@
               type="video/mp4"
             />
           </video>
-          <div class="main_pager_container">
-            <ul class="main_pager">
-              <li>1</li>
-              <li>2</li>
-              <li>3</li>
-              <li>4</li>
-              <li>5</li>
-            </ul>
-          </div>
           <p class="main_title">
-            <span class = "firstTitle"></span>
-            <span class = "secondTitle"></span>
+            <span class="firstTitle"></span>
+            <span class="secondTitle"></span>
           </p>
           <div class="scroll_indicator_container">
             <span>scroll</span>
@@ -132,45 +123,37 @@
         </section>
       </section>
       <section id="About_Me_container">
-        <article id="About_Me" class = "scrl">
-          <div class="AM_menu_toggle_btn"></div>
-          <div class="main_pager_container">
-            <ul class="AM_pager">
-              <li>1</li>
-              <li>2</li>
-              <li>3</li>
-              <li>4</li>
-              <li>5</li>
-            </ul>
-          </div>
+        <article id="About_Me" class="scrl">
           <article class="About_Me_contents">
-            <div class="AM_title">
-              <h1>//전진우</h1>
-              <span class="AM_logo"></span>
-            </div>
-            <div class="AM_inner_text">
-              <span class="inner_text_title">
-                About Me<span class="inner_text_paran">()</span> { <br /><br />
-              </span>
-              <div class="AM_inner_info">
-                <span>
-                  <span>생년월일 = </span>
-                  <span class="inner_info_birth"> 001110100011</span>
-                  <span class="inner_info_birth_colon">;</span> </span
-                ><br /><br />
-                <span>전공</span>
-                <span class="inner_info_major">= 컴퓨터공학전공;</span>
-                <br /><br />
-                <span>거주지</span>
-                <span class="inner_info_address">= 서울특별시 강동구;</span>
-                <br /><br />
-                <span>최종학력</span>
-                <span class="inner_info_scholar">= 대학교 2학년 (휴학중);</span>
-                <br />
+            <div class="About_Me_desc">
+              <div class="AM_title">
+                <h1>//전진우</h1>
+                <span class="AM_logo"></span>
               </div>
-              <span class="inner_info_last">}</span>
+              <div class="AM_inner_text">
+                <span class="inner_text_title">
+                  About Me<span class="inner_text_paran">()</span> { <br /><br />
+                </span>
+                <div class="AM_inner_info">
+                  <span>
+                    <span>생년월일 = </span>
+                    <span class="inner_info_birth"> 001110100011</span>
+                    <span class="inner_info_birth_colon">;</span> </span
+                  ><br /><br />
+                  <span>전공</span>
+                  <span class="inner_info_major">= 컴퓨터공학전공;</span>
+                  <br /><br />
+                  <span>거주지</span>
+                  <span class="inner_info_address">= 서울특별시 강동구;</span>
+                  <br /><br />
+                  <span>최종학력</span>
+                  <span class="inner_info_scholar">= 대학교 2학년 (휴학중);</span>
+                  <br />
+                </div>
+                <span class="inner_info_last">}</span>
+              </div>
             </div>
-            <article class="right_half">
+            <article class="right_half toggle_container">
               <div class="rh_inner">
                 <h1 class="rh_title">MBTI</h1>
                 <div class="rh_inner_text">
@@ -182,14 +165,75 @@
                 </div>
                 <div class="mbti_toggle_btn">
                   <input type="button" value="상세정보" />
-                  <div class="mbti_btn_shadow"></div>
+                </div>
+              </div>
+            </article>
+          </article>
+          <article class="MBTI_contents">
+            <div class="MBTI_inner">
+              <section class="item">
+                <article>
+                  <span>I</span>
+                  <span>81%</span>
+                </article>
+                <article class="progress">
+                  <div class="progress-level"></div>
+                </article>
+              </section>
+              <section class="item">
+                <article>
+                  <span>S</span>
+                  <span>66%</span>
+                </article>
+                <article class="progress">
+                  <div class="progress-level"></div>
+                </article>
+              </section>
+              <section class="item">
+                <article>
+                  <span>F</span>
+                  <span>65%</span>
+                </article>
+                <article class="progress">
+                  <div class="progress-level"></div>
+                </article>
+              </section>
+              <section class="item">
+                <article>
+                  <span>J</span>
+                  <span>90%</span>
+                </article>
+                <article class="progress">
+                  <div class="progress-level"></div>
+                </article>
+              </section>
+              <section class="item">
+                <article>
+                  <span>T</span>
+                  <span>90%</span>
+                </article>
+                <article class="progress">
+                  <div class="progress-level"></div>
+                </article>
+              </section>
+            </div>
+            <article class="left_half toggle_container">
+              <div class="lh_inner">
+                <h1 class="lh_title">ISFJ-T</h1>
+                <div class="lh_inner_text">
+                  <span>용감한 수호자, 실용적인 조력가</span>
+                </div>
+                <div class="mbti_img">
+                  <img src="../img/img/image 2.png" alt="" />
+                </div>
+                <div class="mbti_toggle_btn AM_desc_btn">
+                  <input type="button" value="인적사항" />
                 </div>
               </div>
             </article>
           </article>
         </article>
-        <article id="mobile_mbti" class = "scrl">
-          <div class="mm_menu_toggle_btn"></div>
+        <article id="mobile_mbti" class="scrl">
           <div class="mm_inner">
             <h1 class="mm_title"><span>ISFJ</span>-T</h1>
             <div class="mm_inner_text">
@@ -199,24 +243,13 @@
           <div class="mbti_img">
             <img src="../img/img/image 2.png" alt="" />
           </div>
-          <div class="mbti_toggle_btn">
+          <div class="m_mbti_toggle_btn">
             <button class="mbti_mobile_btn">상세정보</button>
             <!-- <div class="mbti_btn_shadow"></div> -->
           </div>
         </article>
       </section>
-      <section id="Hobbies" class = "scrl">
-        <div class="H_menu_toggle_btn"></div>
-        <div class="H_pager_container">
-          <ul class="H_pager">
-            <li>1</li>
-            <li>2</li>
-            <li>3</li>
-            <li>4</li>
-            <li>5</li>
-          </ul>
-        </div>
-
+      <section id="Hobbies" class="scrl">
         <article class="H_contents">
           <div class="H_contents_title">
             <h1>//취미<span>생활</span></h1>
@@ -352,17 +385,7 @@
           </div>
         </article>
       </section>
-      <section id="Vision" class = "scrl">
-        <div class="V_menu_toggle_btn"></div>
-        <div class="V_pager_container">
-          <ul class="V_pager">
-            <li>1</li>
-            <li>2</li>
-            <li>3</li>
-            <li>4</li>
-            <li>5</li>
-          </ul>
-        </div>
+      <section id="Vision" class="scrl">
         <article class="V_contents">
           <div class="V_contents_title">
             <h1><span>//희망</span> 직장</h1>
@@ -400,7 +423,7 @@
           <span>2</span>
         </div>
       </section>
-      <footer id="Footer" class = "scrl">
+      <footer id="Footer" class="scrl">
         <section class="Footer_bg">
           <video class="bg_video" autoplay muted loop>
             <source
@@ -409,16 +432,7 @@
             />
           </video>
         </section>
-        <div class="F_menu_toggle_btn"></div>
-        <div class="F_pager_container">
-          <ul class="F_pager">
-            <li>1</li>
-            <li>2</li>
-            <li>3</li>
-            <li>4</li>
-            <li>5</li>
-          </ul>
-        </div>
+
         <section class="F_contents">
           <article class="F_contents_credentials">
             <div class="F_title_container">
@@ -436,10 +450,10 @@
                 +82-10-5107-3861
               </span>
               <div class="F_icon_container">
-                <i class="fa-brands fa-linkedin"></i>
-                <i class="fa-solid fa-envelope"></i>
-                <i class="fa-brands fa-instagram"></i>
-                <i class="fa-brands fa-github"></i>
+                <a href="https://www.linkedin.com/in/%EC%A7%84%EC%9A%B0-%EC%A0%84-45784a2b4/" target = "_blank"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="mailto:boon10034@gmail.com"><i class="fa-solid fa-envelope"></i></a>
+                <a href="https://www.instagram.com/t01oo011n/" target = "_blank"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://github.com/GiToon10100011"><i class="fa-brands fa-github" target = "_blank"></i></a>
               </div>
             </div>
           </article>
