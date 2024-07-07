@@ -297,7 +297,7 @@ mbti_toggle_btn.forEach((item) => {
 const mobile_toggle_btn = document.querySelector(".m_mbti_toggle_btn");
 const mbti_toggle_page = document.querySelector("#moblie_mbti_toggle");
 const mbti_before_toggle = document.querySelector("#mobile_mbti");
-const mbti_close_btn = document.querySelector(".mobile_mbti_close_btn")
+const mbti_close_btn = document.querySelector(".mobile_mbti_close_btn");
 
 mobile_toggle_btn.addEventListener("click", () => {
   mbti_before_toggle.classList.add("active");
@@ -307,5 +307,358 @@ mobile_toggle_btn.addEventListener("click", () => {
 mbti_close_btn.addEventListener("click", () => {
   mbti_before_toggle.classList.remove("active");
   mbti_toggle_page.classList.remove("active");
-})
+});
 
+const cards = document.querySelectorAll(".H_card");
+const H_bg = document.querySelector("#Hobbies");
+const card_container = document.querySelector(".H_card_container");
+
+cards.forEach((item, index) => {
+  item.addEventListener("click", () => {
+    cards.forEach((card, i) => {
+      if (i !== index) {
+        card.classList.remove("active");
+      } else {
+        card.classList.add("active");
+      }
+    });
+  });
+});
+
+// 이벤트 버블링 방지
+
+H_bg.addEventListener("click", (event) => {
+  // 배경을 클릭한 경우만 처리하고, 카드 클릭 시 버블링 방지
+  if (event.target === H_bg) {
+    cards.forEach((item) => {
+      item.classList.remove("active");
+    });
+  }
+});
+
+card_container.addEventListener("click", (event) => {
+  // 배경을 클릭한 경우만 처리하고, 카드 클릭 시 버블링 방지
+  if (event.target === card_container) {
+    cards.forEach((item) => {
+      item.classList.remove("active");
+    });
+  }
+});
+
+// Pagers & Arrows
+const imgArrows1 = document.querySelectorAll(".first .slide_arrow");
+const imgArrows2 = document.querySelectorAll(".second .slide_arrow");
+const imgArrows3 = document.querySelectorAll(".third .slide_arrow");
+
+const imgPagers1 = document.querySelectorAll(" .first .img_slide_pager span");
+const imgPagers2 = document.querySelectorAll(" .second .img_slide_pager span");
+const imgPagers3 = document.querySelectorAll(" .third .img_slide_pager span");
+
+const slideImg1 = document.querySelector(".card_inner_img.first");
+const slideImg2 = document.querySelector(".card_inner_img.second");
+const slideImg3 = document.querySelector(".card_inner_img.third");
+
+const pics1 = ["Game1.png", "Game2.png", "Game3.png", "Game4.png"];
+const pics2 = [
+  "Photo1.png",
+  "Photo2.png",
+  "Photo3.png",
+  "Photo4.png",
+  "Photo5.png",
+  "Photo6.png",
+  "Photo7.png",
+];
+const pics3 = ["Music1.png", "Music2.png", "Music3.png", "Music4.png"];
+
+let imgIndex1 = 0;
+let imgIndex2 = 0;
+let imgIndex3 = 0;
+
+slideImg1.style.backgroundImage = `url(../img/img/${pics1[imgIndex1]})`;
+slideImg2.style.backgroundImage = `url(../img/img/${pics2[imgIndex2]})`;
+slideImg3.style.backgroundImage = `url(../img/img/${pics3[imgIndex3]})`;
+
+imgPagers1[0].classList.add("active");
+imgPagers2[0].classList.add("active");
+imgPagers3[0].classList.add("active");
+
+const updateImg1 = (imgIndex1) => {
+  imgPagers1.forEach((item) => {
+    item.classList.remove("active");
+  });
+  slideImg1.style.backgroundImage = `url(../img/img/${pics1[imgIndex1]})`;
+  imgPagers1[imgIndex1].classList.add("active");
+};
+
+const updateImg2 = (imgIndex2) => {
+  imgPagers2.forEach((item) => {
+    item.classList.remove("active");
+  });
+  slideImg2.style.backgroundImage = `url(../img/img/${pics2[imgIndex2]})`;
+  imgPagers2[imgIndex2].classList.add("active");
+};
+
+const updateImg3 = (imgIndex3) => {
+  imgPagers3.forEach((item) => {
+    item.classList.remove("active");
+  });
+  slideImg3.style.backgroundImage = `url(../img/img/${pics3[imgIndex3]})`;
+  imgPagers3[imgIndex3].classList.add("active");
+};
+
+imgArrows1.forEach((arrow) => {
+  arrow.addEventListener("click", (e) => {
+    if (
+      e.target.classList.contains("sal1") ||
+      e.target.classList.contains("fal1")
+    ) {
+      imgIndex1 = (imgIndex1 - 1 + pics1.length) % pics1.length;
+    } else if (
+      e.target.classList.contains("sar1") ||
+      e.target.classList.contains("far1")
+    ) {
+      imgIndex1 = (imgIndex1 + 1) % pics1.length;
+    }
+
+    updateImg1(imgIndex1);
+  });
+});
+
+imgPagers1.forEach((pager, index) => {
+  pager.addEventListener("click", () => {
+    console.log("clicked");
+    imgIndex1 = index;
+    updateImg1(imgIndex1);
+  });
+});
+
+imgArrows2.forEach((arrow) => {
+  arrow.addEventListener("click", (e) => {
+    console.log("clicked");
+    if (
+      e.target.classList.contains("sal2") ||
+      e.target.classList.contains("fal2")
+    ) {
+      imgIndex2 = (imgIndex2 - 1 + pics2.length) % pics2.length;
+    } else if (
+      e.target.classList.contains("sar2") ||
+      e.target.classList.contains("far2")
+    ) {
+      imgIndex2 = (imgIndex2 + 1) % pics2.length;
+    }
+
+    updateImg2(imgIndex2);
+  });
+});
+
+imgPagers2.forEach((pager, index) => {
+  pager.addEventListener("click", () => {
+    imgIndex2 = index;
+    updateImg2(imgIndex2);
+  });
+});
+
+imgArrows3.forEach((arrow) => {
+  arrow.addEventListener("click", (e) => {
+    if (
+      e.target.classList.contains("sal3") ||
+      e.target.classList.contains("fal3")
+    ) {
+      imgIndex3 = (imgIndex3 - 1 + pics3.length) % pics3.length;
+    } else if (
+      e.target.classList.contains("sar3") ||
+      e.target.classList.contains("far3")
+    ) {
+      imgIndex3 = (imgIndex3 + 1) % pics3.length;
+    }
+
+    updateImg3(imgIndex3);
+  });
+});
+
+imgPagers3.forEach((pager, index) => {
+  pager.addEventListener("click", () => {
+    console.log("clicked");
+    imgIndex3 = index;
+    updateImg3(imgIndex3);
+  });
+});
+
+// Mobile card Slider Event
+
+const mCardArrows1 = document.querySelectorAll(".mFirst .slide_arrow");
+const mCardArrows2 = document.querySelectorAll(".mSecond .slide_arrow");
+const mCardArrows3 = document.querySelectorAll(".mThird .slide_arrow");
+
+const mPagerDots = document.querySelectorAll(".m_card_pager span");
+
+const cardMoveContainer = document.querySelector(".H_card_container");
+
+let mPagerIndex = 0;
+
+mPagerDots[mPagerIndex].classList.add("active");
+
+mCardArrows1.forEach((arrow) => {
+  arrow.addEventListener("click", (e) => {
+    if (
+      e.target.classList.contains("msal1") ||
+      e.target.classList.contains("mfal1")
+    ) {
+      cardMoveContainer.classList.add("skipRight");
+      mPagerDots[0].classList.remove("active");
+      mPagerDots[1].classList.remove("active");
+      mPagerDots[2].classList.add("active");
+    } else if (
+      e.target.classList.contains("msar1") ||
+      e.target.classList.contains("mfar1")
+    ) {
+      cardMoveContainer.classList.add("moveRight");
+      mPagerDots[0].classList.remove("active");
+      mPagerDots[1].classList.add("active");
+      mPagerDots[2].classList.remove("active");
+    }
+  });
+});
+
+mCardArrows2.forEach((arrow) => {
+  arrow.addEventListener("click", (e) => {
+    if (
+      e.target.classList.contains("msal2") ||
+      e.target.classList.contains("mfal2")
+    ) {
+      cardMoveContainer.classList.remove("moveRight");
+      mPagerDots[0].classList.add("active");
+      mPagerDots[1].classList.remove("active");
+      mPagerDots[2].classList.remove("active");
+    } else if (
+      e.target.classList.contains("msar2") ||
+      e.target.classList.contains("mfar2")
+    ) {
+      cardMoveContainer.classList.add("skipRight");
+      mPagerDots[0].classList.remove("active");
+      mPagerDots[1].classList.remove("active");
+      mPagerDots[2].classList.add("active");
+    }
+  });
+});
+
+mCardArrows3.forEach((arrow) => {
+  arrow.addEventListener("click", (e) => {
+    if (
+      e.target.classList.contains("msal3") ||
+      e.target.classList.contains("mfal3")
+    ) {
+      cardMoveContainer.classList.remove("skipRight");
+      cardMoveContainer.classList.add("moveRight");
+      mPagerDots[0].classList.remove("active");
+      mPagerDots[1].classList.add("active");
+      mPagerDots[2].classList.remove("active");
+    } else if (
+      e.target.classList.contains("msar3") ||
+      e.target.classList.contains("mfar3")
+    ) {
+      cardMoveContainer.classList.remove("skipRight");
+      cardMoveContainer.classList.remove("moveRight");
+      cardMoveContainer.classList.remove("moveLeft");
+      mPagerDots[0].classList.add("active");
+      mPagerDots[1].classList.remove("active");
+      mPagerDots[2].classList.remove("active");
+    }
+  });
+});
+
+mPagerDots.forEach((dot, index) => {
+  dot.addEventListener("click", (e) => {
+    mPagerDots.forEach((dot, i) => {
+      if (i !== index) {
+        dot.classList.remove("active");
+      } else {
+        dot.classList.add("active");
+      }
+    });
+    // 페이저 클릭 이벤트 처리
+    const pageIndex = Array.from(mPagerDots).indexOf(dot);
+    // 페이지 인덱스에 따라 cardMoveContainer 클래스 설정
+    if (pageIndex === 0) {
+      cardMoveContainer.classList.remove("moveRight");
+      cardMoveContainer.classList.remove("skipRight");
+    } else if (pageIndex === 1) {
+      cardMoveContainer.classList.remove("skipRight");
+      cardMoveContainer.classList.add("moveRight");
+      dot.classList.add("active");
+    } else if (pageIndex === 2) {
+      cardMoveContainer.classList.add("skipRight");
+      dot.classList.add("active");
+    }
+  });
+});
+
+// Vision Card Event
+const Vcard1 = document.querySelector(".V_card.first");
+const Vcard2 = document.querySelector(".V_card.second");
+const overlay1 = document.querySelector(".Discord");
+const overlay2 = document.querySelector(".Nintendo");
+
+const Vcard_img1 = document.querySelector(".V_card_inner_img.first");
+const Vcard_img2 = document.querySelector(".V_card_inner_img.second");
+
+const discordImg = ["Discord.png", "ColorDiscord.png"];
+const nintendoImg = ["Nintendo.png", "ColorNintendo.png"];
+
+Vcard_img1.style.backgroundImage = `url(../img/img/${discordImg[0]})`;
+Vcard_img2.style.backgroundImage = `url(../img/img/${nintendoImg[0]})`;
+
+Vcard1.addEventListener("mousemove", function (e) {
+  const x = e.offsetX;
+  const y = e.offsetY;
+  const rotateY = (-1 / 25) * x + 20;
+  const rotateX = (1 / 19) * y - 20;
+  Vcard1.style = `transform : perspective(1500px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+  Vcard_img1.style.backgroundImage = `url(../img/img/${discordImg[1]})`;
+});
+
+Vcard2.addEventListener("mousemove", function (e) {
+  const x = e.offsetX;
+  const y = e.offsetY;
+  const rotateY = (-1 / 25) * x + 20;
+  const rotateX = (1 / 19) * y - 20;
+  Vcard2.style = `transform : perspective(1500px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+  Vcard_img2.style.backgroundImage = `url(../img/img/${nintendoImg[1]})`;
+});
+
+Vcard1.addEventListener("mouseout", function () {
+  Vcard1.style = "transform : perspective(350px) rotateY(0deg) rotateX(0deg)";
+  Vcard_img1.style.backgroundImage = `url(../img/img/${discordImg[0]})`;
+});
+Vcard2.addEventListener("mouseout", function () {
+  Vcard2.style = "transform : perspective(350px) rotateY(0deg) rotateX(0deg)";
+  Vcard_img2.style.backgroundImage = `url(../img/img/${nintendoImg[0]})`;
+});
+
+// Mobile Vision Event
+
+const vContainer = document.querySelector(".V_card_container");
+
+const vPagers = document.querySelectorAll(".V_slide_pager span");
+
+vPagers[0].classList.add("active");
+
+vPagers.forEach((dot, index) => {
+  dot.addEventListener("click", (e) => {
+    vPagers.forEach((dot, i) => {
+      if (i !== index) {
+        dot.classList.remove("active");
+      } else {
+        dot.classList.add("active");
+      }
+    });
+
+    const pageIndex = Array.from(vPagers).indexOf(dot);
+    if (pageIndex === 0) {
+      vContainer.classList.remove("move");
+    } else if (pageIndex === 1) {
+      vContainer.classList.add("move");
+      dot.classList.add("active");
+    }
+  });
+});

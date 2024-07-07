@@ -21,7 +21,7 @@
     <script defer type="module" src="script.js"></script>
   </head>
   <body>
-    <!-- <div id="loading_screen">
+    <div id="loading_screen">
       <div class="loader">
         <div class="loader-1 bar"></div>
         <div class="loader-2 bar"></div>
@@ -60,7 +60,7 @@
           <div class="num">0</div>
         </div>
       </div>
-    </div> -->
+    </div>
     <div id="wrapper">
       <div class="scroll_watcher"></div>
       <div class="scroll_toggle_btn"></div>
@@ -252,7 +252,7 @@
               <!-- <div class="mbti_btn_shadow"></div> -->
             </div>
           </article>
-          <article id="mobile_mbti_toggle" class = "scrl">
+          <article id="mobile_mbti_toggle" class="scrl">
             <div class="mobile_mbti_toggle_inner">
               <div class="mobile_mbti_close_btn">
                 <span>Back</span>
@@ -317,11 +317,11 @@
             <div class="H_card 1">
               <div class="card_inner_img first">
                 <div class="img_slide_arrow">
-                  <span class="slide_arrow left">
-                    <i class="fas fa-angle-left"></i>
+                  <span class="slide_arrow left sal1">
+                    <i class="fas fa-angle-left fal1"></i>
                   </span>
-                  <span class="slide_arrow right">
-                    <i class="fas fa-angle-right"></i>
+                  <span class="slide_arrow right sar1">
+                    <i class="fas fa-angle-right far1"></i>
                   </span>
                 </div>
                 <div class="img_slide_pager">
@@ -331,13 +331,13 @@
                   <span>4</span>
                 </div>
               </div>
-              <div class="card_info_container">
+              <div class="card_info_container mFirst">
                 <div class="card_slide_arrow">
-                  <span class="slide_arrow left">
-                    <i class="fas fa-angle-left"></i>
+                  <span class="slide_arrow left msal1">
+                    <i class="fas fa-angle-left mfal1"></i>
                   </span>
-                  <span class="slide_arrow right">
-                    <i class="fas fa-angle-right"></i>
+                  <span class="slide_arrow right msar1">
+                    <i class="fas fa-angle-right mfar1"></i>
                   </span>
                 </div>
                 <h1 class="card_info_title">게임</h1>
@@ -357,11 +357,11 @@
             <div class="H_card 2">
               <div class="card_inner_img second">
                 <div class="img_slide_arrow">
-                  <span class="slide_arrow left">
-                    <i class="fas fa-angle-left"></i>
+                  <span class="slide_arrow left sal2">
+                    <i class="fas fa-angle-left fal2"></i>
                   </span>
-                  <span class="slide_arrow right">
-                    <i class="fas fa-angle-right"></i>
+                  <span class="slide_arrow right sar2">
+                    <i class="fas fa-angle-right far2"></i>
                   </span>
                 </div>
                 <div class="img_slide_pager">
@@ -374,13 +374,13 @@
                   <span>7</span>
                 </div>
               </div>
-              <div class="card_info_container">
+              <div class="card_info_container mSecond">
                 <div class="card_slide_arrow">
-                  <span class="slide_arrow left">
-                    <i class="fas fa-angle-left"></i>
+                  <span class="slide_arrow left msal2">
+                    <i class="fas fa-angle-left mfal2"></i>
                   </span>
-                  <span class="slide_arrow right">
-                    <i class="fas fa-angle-right"></i>
+                  <span class="slide_arrow right msar2">
+                    <i class="fas fa-angle-right mfar2"></i>
                   </span>
                 </div>
                 <h1 class="card_info_title">사진</h1>
@@ -399,11 +399,11 @@
             <div class="H_card 3">
               <div class="card_inner_img third">
                 <div class="img_slide_arrow">
-                  <span class="slide_arrow left">
-                    <i class="fas fa-angle-left"></i>
+                  <span class="slide_arrow left sal3">
+                    <i class="fas fa-angle-left fal3"></i>
                   </span>
-                  <span class="slide_arrow right">
-                    <i class="fas fa-angle-right"></i>
+                  <span class="slide_arrow right sar3">
+                    <i class="fas fa-angle-right far3"></i>
                   </span>
                 </div>
                 <div class="img_slide_pager">
@@ -413,13 +413,13 @@
                   <span>4</span>
                 </div>
               </div>
-              <div class="card_info_container">
+              <div class="card_info_container mThird">
                 <div class="card_slide_arrow">
-                  <span class="slide_arrow left">
-                    <i class="fas fa-angle-left"></i>
+                  <span class="slide_arrow left msal3">
+                    <i class="fas fa-angle-left mfal3"></i>
                   </span>
-                  <span class="slide_arrow right">
-                    <i class="fas fa-angle-right"></i>
+                  <span class="slide_arrow right msar3">
+                    <i class="fas fa-angle-right mfar3"></i>
                   </span>
                 </div>
                 <h1 class="card_info_title">음악</h1>
@@ -451,6 +451,7 @@
           </div>
           <div class="V_card_container">
             <div class="V_card first">
+              <div class="Discord"></div>
               <div class="V_card_inner">
                 <div class="V_card_inner_img first"></div>
                 <span class="V_card_inner_title first">Discord</span>
@@ -464,6 +465,7 @@
               </p>
             </div>
             <div class="V_card second">
+              <div class="Nintendo"></div>
               <div class="V_card_inner">
                 <div class="V_card_inner_img second"></div>
                 <span class="V_card_inner_title second">Nintendo</span>
@@ -531,9 +533,9 @@
             <form action="#" method="GET">
               <select name="" id="">
                 <option value="" selected disabled>문의 카테고리 선택</option>
-                <option value=""></option>
-                <option value=""></option>
-                <option value=""></option>
+                <option value="">코딩</option>
+                <option value="">디자인</option>
+                <option value="">질문</option>
               </select>
               <input type="text" name="Name" id="Name" placeholder="Name" />
               <input type="text" name="Email" id="Email" placeholder="Email" />
@@ -553,6 +555,7 @@
               <input type="submit" value="Submit" />
             </form>
           </fieldset>
+          <span class="topBtn"><a href="#main">Top ^</a></span>
         </section>
       </footer>
     </div>

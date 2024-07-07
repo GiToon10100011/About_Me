@@ -459,7 +459,8 @@
   position: relative;
   font-family: IBM Plex Mono, monospace;
   color: var(--text_point_color);
-  &:hover::before, &:active::before {
+  &:hover::before,
+  &:active::before {
     opacity: 1;
   }
   &::before {
@@ -822,9 +823,38 @@
   height: 750px;
   border-radius: 20px;
   box-shadow: 0px 0px 29.6px rgba(0, 0, 0, 0.7);
+  transition: all 0.6s ease-in-out;
+  cursor: pointer;
+  &.active {
+    cursor: auto;
+  }
+  &.active .img_slide_arrow {
+    opacity: 1;
+  }
+  &.active .img_slide_pager {
+    opacity: 1;
+  }
+  &:nth-child(1) {
+    z-index: 1000;
+    &.active {
+      transform: translateX(123%) translateY(-13%) rotateY(360deg) scale(1.3);
+    }
+  }
+  &:nth-child(2) {
+    opacity: 1;
+    &.active {
+      transform: translateY(-13%) rotateY(360deg) scale(1.3);
+    }
+  }
+  &:nth-child(3) {
+    &.active {
+      transform: translateX(-123%) translateY(-13%) rotateY(360deg) scale(1.3);
+    }
+  }
 }
 
 .card_inner_img {
+  position: relative;
   width: 100%;
   height: 416px;
 }
@@ -838,6 +868,7 @@
   justify-content: center;
   align-items: center;
   text-align: center;
+  background: #393939;
   gap: 30px;
 }
 
@@ -850,6 +881,7 @@
 }
 
 .card_info_desc {
+  position: relative;
   font-family: "Nexon Lv1 Gothic";
   font-style: normal;
   font-weight: 400;
@@ -868,6 +900,7 @@
 }
 
 .card_inner_img {
+  overflow: hidden;
   border-radius: 20px 20px 0 0;
   width: 100%;
   height: 416px;
@@ -875,18 +908,16 @@
   align-items: center;
   justify-content: center;
   position: relative;
-
-  &.first {
-    background: radial-gradient(circle, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5)),
-      url("../img/img/Game1.png") center/cover no-repeat;
-  }
-  &.second {
-    background: radial-gradient(circle, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5)),
-      url("../img/img/Photo1.png") center/cover no-repeat;
-  }
-  &.third {
-    background: radial-gradient(circle, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5)),
-      url("../img/img/Music1.png") center/cover no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  transition: all 0.6s;
+  &::before {
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background: radial-gradient(circle, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5));
   }
 }
 
@@ -897,22 +928,24 @@
   justify-content: space-between;
   cursor: pointer;
   padding: 0 20px;
-  display: none;
+  transition: all 0.3s;
+  opacity: 0;
 }
 
 .img_slide_arrow .slide_arrow.left {
   position: relative;
   width: 50px;
   height: 50px;
-  color: #111;
+  color: #666;
   text-align: center;
   border-radius: 100%;
-  background: rgba(136, 136, 136, 0.25);
+  background: rgba(8, 8, 8, 0.5);
   transition: all 0.3s;
   &:hover {
-    color: var(--bg-color-black);
+    color: #fff;
     background: rgba(0, 0, 0, 0.3);
     border-radius: 100%;
+    transform: translateX(-10px);
   }
   /* 위치확인용 */
   /* border: 1px solid #f00; */
@@ -922,15 +955,16 @@
   position: relative;
   width: 50px;
   height: 50px;
-  color: #111;
+  color: #666;
   text-align: center;
   border-radius: 100%;
-  background: rgba(136, 136, 136, 0.25);
+  background: rgba(8, 8, 8, 0.5);
   transition: all 0.3s;
   &:hover {
-    color: var(--bg-color-black);
+    color: #fff;
     background: rgba(0, 0, 0, 0.3);
     border-radius: 100%;
+    transform: translateX(10px);
   }
   /* 위치확인용 */
   /* border: 1px solid #f00; */
@@ -1013,7 +1047,8 @@
   justify-content: center;
   gap: 12px;
   cursor: pointer;
-  display: none;
+  transition: all 0.3s;
+  opacity: 0;
 }
 
 .img_slide_pager span {
@@ -1022,6 +1057,9 @@
   border-radius: 100%;
   background: rgba(255, 255, 255, 0.5);
   text-indent: -9999px;
+  &.active {
+    background-color: #ddd;
+  }
 }
 
 .card_pager {
@@ -1081,6 +1119,7 @@
 }
 
 .V_card_container {
+  position: relative;
   width: 100%;
   height: 744px;
   display: flex;
@@ -1088,6 +1127,35 @@
   gap: 110px;
   align-items: center;
   justify-content: center;
+  &.move {
+    transform: none;
+  }
+}
+
+.Discord {
+  position: absolute;
+  width: 100%;
+  height: 744px;
+  left: 0;
+  filter: brightness(1.1) opacity(0.8);
+  mix-blend-mode: color-dodge;
+  background-size: 150% 150%;
+  background-position: 100%;
+  transition: all 0.1s;
+  z-index: 1000;
+}
+
+.Nintendo {
+  position: absolute;
+  width: 100%;
+  height: 744px;
+  top: 0;
+  filter: brightness(1.1) opacity(0.8);
+  mix-blend-mode: color-dodge;
+  background-size: 150% 150%;
+  background-position: 100%;
+  transition: all 0.1s;
+  z-index: 1000;
 }
 
 .V_card {
@@ -1102,9 +1170,14 @@
   gap: 34px;
   &.first {
     background: linear-gradient(180deg, #adadad 0%, #474747 100%);
+    z-index: 1;
   }
   &.second {
     background: linear-gradient(180deg, #4d4d4d 0%, #d8d8d8 100%);
+    z-index: 1;
+  }
+  &.hover {
+    z-index: 2;
   }
 }
 
@@ -1120,15 +1193,13 @@
 }
 
 .V_card_inner_img {
-  width: 330px;
-  height: 330px;
-  &.first {
-    background: url("../img/img/Discord.png") center/cover no-repeat;
-  }
-  &.second {
-    background: url("../img/img/Nintendo.png") center/cover no-repeat;
-    border-radius: 100%;
-  }
+  width: 360px;
+  height: 360px;
+  border-radius: 100%;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  transition: all 0.6s;
 }
 
 .V_card_inner_title {
@@ -1262,6 +1333,10 @@ footer {
   font-size: 30px;
   i {
     cursor: pointer;
+    transition: all 0.3s;
+    &:hover{
+      color: rgba(255, 255, 255, 0.8);
+    }
   }
 }
 
@@ -1300,6 +1375,9 @@ select {
     border: none;
     border-bottom: 1px solid white;
     outline: none;
+  }
+  option {
+    color: #333;
   }
 }
 
@@ -1361,6 +1439,19 @@ textarea {
   }
 }
 
+.topBtn {
+  position: absolute;
+  bottom: 30px;
+  right: 30px;
+  color: #696969;
+  font-size: 30px;
+  transition: all 0.3s;
+  &:hover {
+    color: rgba(255, 255, 255, 0.8);
+    transform: translateY(-10px);
+  }
+}
+
 @media screen and (max-width: 1190px) and (min-width: 360px) {
   #wrapper {
     width: 100%;
@@ -1376,7 +1467,7 @@ textarea {
     border-radius: 8px;
     right: 20px;
     z-index: 10;
-    &:active{
+    &:active {
       transform: rotate(-180deg);
     }
   }
@@ -1732,7 +1823,8 @@ textarea {
         opacity: 1;
         transition: all 0.1s;
       }
-      &:active:before, &:hover:before {
+      &:active:before,
+      &:hover:before {
         opacity: 0;
       }
     }
@@ -1785,7 +1877,8 @@ textarea {
       background: url("../img/img/Logo.png") center/cover no-repeat;
       transform: scaleX(-1);
     }
-    &:hover, &:active {
+    &:hover,
+    &:active {
       transform: translateX(-10px);
       opacity: 1;
     }
@@ -1874,13 +1967,44 @@ textarea {
     width: 100%;
     gap: 30px;
     border-radius: 18px;
+    /* -110, -220 */
+    transform: translateX(0);
+    transition: all 0.6s ease-in-out;
+    &.moveRight {
+      transform: translateX(-110%);
+    }
+
+    &.moveLeft {
+      transform: translateX(110%);
+    }
+
+    &.skipRight {
+      transform: translateX(-218%);
+    }
   }
 
   .H_card {
     width: 100%;
     height: 414px;
     border-radius: 20px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.7);
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5);
+    &:nth-child(1) {
+      z-index: 1000;
+      &.active {
+        transform: none;
+      }
+    }
+    &:nth-child(2) {
+      opacity: 1;
+      &.active {
+        transform: none;
+      }
+    }
+    &:nth-child(3) {
+      &.active {
+        transform: none;
+      }
+    }
   }
 
   .card_inner_img {
@@ -1920,20 +2044,23 @@ textarea {
     cursor: pointer;
     padding: 0 10px;
     gap: 120px;
+    opacity: 1;
   }
   .img_slide_arrow .slide_arrow.left {
     position: relative;
     width: 24px;
     height: 24px;
-    color: #111;
+    color: #666;
     text-align: center;
     border-radius: 100%;
-    background: rgba(136, 136, 136, 0.25);
+    background: rgba(8, 8, 8, 0.5);
     transition: all 0.3s;
-    &:hover, &:active {
+    &:hover,
+    &:active {
       color: white;
       background: rgba(0, 0, 0, 0.3);
       border-radius: 100%;
+      transform: translateX(-3px);
     }
     /* 위치확인용 */
     /* border: 1px solid #f00; */
@@ -1943,15 +2070,17 @@ textarea {
     position: relative;
     width: 24px;
     height: 24px;
-    color: #111;
+    color: #666;
     text-align: center;
     border-radius: 100%;
-    background: rgba(136, 136, 136, 0.25);
+    background: rgba(8, 8, 8, 0.5);
     transition: all 0.3s;
-    &:hover, &:active {
+    &:hover,
+    &:active {
       color: white;
       background: rgba(0, 0, 0, 0.3);
       border-radius: 100%;
+      transform: translateX(3px);
     }
     /* 위치확인용 */
     /* border: 1px solid #f00; */
@@ -1979,6 +2108,7 @@ textarea {
     justify-content: center;
     gap: 4px;
     cursor: pointer;
+    opacity: 1;
   }
 
   .img_slide_pager span {
@@ -2005,12 +2135,14 @@ textarea {
     position: relative;
     width: 7px;
     height: 13px;
-    color: #fff;
+    color: rgba(255, 255, 255, 0.7);
     text-align: center;
     border-radius: 100%;
     transition: all 0.3s;
-    &:hover, &:active {
-      transform: translateX(-2px);
+    &:hover,
+    &:active {
+      color: white;
+      transform: translateX(-1px);
       background: none;
     }
     /* 위치확인용 */
@@ -2021,12 +2153,14 @@ textarea {
     position: relative;
     width: 7px;
     height: 13px;
-    color: #fff;
+    color: rgba(255, 255, 255, 0.7);
     text-align: center;
     border-radius: 100%;
     transition: all 0.3s;
-    &:hover, &:active {
-      transform: translateX(2px);
+    &:hover,
+    &:active {
+      color: white;
+      transform: translateX(1px);
       background: none;
     }
     /* 위치확인용 */
@@ -2057,11 +2191,15 @@ textarea {
     transform: translateX(-50%);
     cursor: pointer;
     span {
+      transition: all 0.3s;
       width: 30px;
       height: 4px;
       background: #d9d9d9;
       /* 숫자를 안보이게함. html태그내의 내용을 지워도 되지만 그럴경우 첨보는 사람이 볼때 비어있는 태그가 이상하게 보이므로 코드의 재사용성이 떨어짐. 다음과 같은 방법으로 없애는걸 권장 */
       text-indent: -9999px;
+      &.active {
+        background: #555;
+      }
     }
   }
 
@@ -2094,7 +2232,7 @@ textarea {
     height: 340px;
     gap: 0;
     transition: all 0.3s;
-    &:hover {
+    &.move {
       transform: translateX(-50%);
     }
   }
@@ -2147,6 +2285,9 @@ textarea {
     border-radius: 100%;
     background: rgba(255, 255, 255, 0.5);
     text-indent: -9999px;
+    &.active {
+      background: #555;
+    }
   }
 
   footer {
@@ -2181,7 +2322,7 @@ textarea {
   }
 
   .F_title_text {
-    font-size: 40px;
+    font-size: 2.2em;
   }
 
   .F_query {
@@ -2197,6 +2338,11 @@ textarea {
     gap: 12px;
     font-size: 20px;
     z-index: 10;
+    i{
+      &:hover, &:active{
+        color: rgba(255, 255, 255, 0.8);
+      }
+    }
   }
 
   form {
@@ -2255,6 +2401,13 @@ textarea {
     height: 60px;
     &::placeholder {
       padding: 0;
+    }
+  }
+
+  .topBtn {
+    font-size: 0.6em;
+    &:hover {
+      transform: translateY(-2px);
     }
   }
 }
