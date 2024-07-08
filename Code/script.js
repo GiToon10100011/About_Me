@@ -111,11 +111,9 @@ const mainTitle = document.querySelector(".main_title");
 
 let jsonData;
 
-// then은 fetch(json파일을 잘 찾아왔다고 가정)가 잘되면 그럼 이걸 해줘라는 뜻
 fetch("./data.json")
   .then((response) => response.json())
   .then((data) => {
-    // 구조 분해 할당 -> 배열이나 객체의 속성을 해체해서 그 값을 개별 변수에 담을 수 있게함.
     const [firstData, ...otherData] = data.data;
     jsonData = data.data;
     first_Title.innerHTML = firstData.first;
@@ -124,9 +122,7 @@ fetch("./data.json")
     second_Title.classList.add("active");
   });
 
-// 언제나 바꿔칠 수 있도록 호이스팅, 재선언, 등이 가능한 let을 사용
 let i = 0;
-// 슬라이드 쇼의 타이머를 저장할 변수
 let titleInterval;
 let isTransitioning = false;
 
@@ -143,11 +139,9 @@ const updateTitle = (i) => {
 };
 
 const startSlideShow = () => {
-  // 2초마다 해당 구문을 실행함
   titleInterval = setInterval(() => {
     updateTitle(i);
     i++;
-    // 초기화시켜줌
     if (i >= jsonData.length) {
       i = 0;
     }
@@ -155,6 +149,7 @@ const startSlideShow = () => {
 };
 
 // scrollIndicator event
+
 window.addEventListener("scroll", () => {
   const scroll = document.querySelector(".scroll_indicator_container");
   if (window.scrollY > 120) {
@@ -238,7 +233,8 @@ function checkBoxes() {
   });
 }
 
-// 스크롤 이벤트로 인한 앵커태그 위치 재조정
+// Anchor Tag Repositioning Event
+
 document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
   anchor.addEventListener("click", function (e) {
     e.preventDefault();
@@ -254,15 +250,12 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
       M_Header.style.background = "#111";
     }
 
-    // 모든 섹션 숨기기
     boxes.forEach((box) => {
       box.classList.remove("show");
     });
 
-    // 타겟 섹션 보이기
     targetElement.classList.add("show");
 
-    // 스크롤 이동
     window.scrollTo({
       top: targetElement.offsetTop,
       behavior: "smooth",
@@ -271,6 +264,7 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
 });
 
 // About_Me ToggleEvent
+
 const mbti_toggle_btn = document.querySelectorAll(".mbti_toggle_btn");
 const right_half = document.querySelector(".right_half");
 const left_half = document.querySelector(".left_half");
@@ -325,10 +319,9 @@ cards.forEach((item, index) => {
   });
 });
 
-// 이벤트 버블링 방지
+// Prevent Event Bubbling
 
 H_bg.addEventListener("click", (event) => {
-  // 배경을 클릭한 경우만 처리하고, 카드 클릭 시 버블링 방지
   if (event.target === H_bg) {
     cards.forEach((item) => {
       item.classList.remove("active");
@@ -337,7 +330,6 @@ H_bg.addEventListener("click", (event) => {
 });
 
 card_container.addEventListener("click", (event) => {
-  // 배경을 클릭한 경우만 처리하고, 카드 클릭 시 버블링 방지
   if (event.target === card_container) {
     cards.forEach((item) => {
       item.classList.remove("active");
@@ -346,6 +338,7 @@ card_container.addEventListener("click", (event) => {
 });
 
 // Pagers & Arrows
+
 const imgArrows1 = document.querySelectorAll(".first .slide_arrow");
 const imgArrows2 = document.querySelectorAll(".second .slide_arrow");
 const imgArrows3 = document.querySelectorAll(".third .slide_arrow");
@@ -576,9 +569,7 @@ mPagerDots.forEach((dot, index) => {
         dot.classList.add("active");
       }
     });
-    // 페이저 클릭 이벤트 처리
     const pageIndex = Array.from(mPagerDots).indexOf(dot);
-    // 페이지 인덱스에 따라 cardMoveContainer 클래스 설정
     if (pageIndex === 0) {
       cardMoveContainer.classList.remove("moveRight");
       cardMoveContainer.classList.remove("skipRight");
@@ -594,6 +585,7 @@ mPagerDots.forEach((dot, index) => {
 });
 
 // Vision Card Event
+
 const Vcard1 = document.querySelector(".V_card.first");
 const Vcard2 = document.querySelector(".V_card.second");
 const overlay1 = document.querySelector(".Discord");
@@ -635,21 +627,20 @@ Vcard2.addEventListener("mouseout", function () {
   Vcard_img2.style.backgroundImage = `url(../img/img/${nintendoImg[0]})`;
 });
 
-const mediaQuery = window.matchMedia('(max-width : 1190px)');
+const mediaQuery = window.matchMedia("(max-width : 1190px)");
 
-mediaQuery.addEventListener('change', (e) => {
-  if(e.matches){
+mediaQuery.addEventListener("change", (e) => {
+  if (e.matches) {
     Vcard1.style = "transform : none";
   }
 });
 
+if (mediaQuery.matches) {
+  Vcard1.style = "transform : none";
+  Vcard1.classList.add("remove");
+}
 
-  if(mediaQuery.matches){
-    Vcard1.style = "transform : none";
-    Vcard1.classList.add("remove");
-  }
-
-// Mobile Vision Event
+// Mobile Vision Slide Event
 
 const vContainer = document.querySelector(".V_card_container");
 

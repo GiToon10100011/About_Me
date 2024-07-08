@@ -21,7 +21,7 @@
   }
 }
 
-/* animations  */
+/* Animations  */
 
 @keyframes ani {
   0% {
@@ -62,7 +62,8 @@
   }
 }
 
-/* Intersecting Pages */
+/* Scroll Intersecting Pages Event */
+
 .scrl {
   transform: scale(0);
   transition: transform 1s ease-out;
@@ -79,6 +80,8 @@
   position: relative;
   overflow: hidden;
 }
+
+/* Preloader */
 
 #loading_screen {
   position: fixed;
@@ -189,9 +192,24 @@
   }
 }
 
+.gnb_toggle_btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  border: 1px solid white;
+  transform: rotate(45deg);
+  transition: 0.5s ease-in-out;
+  &:hover {
+    transform: rotate(-180deg);
+  }
+}
+
 .gnbMobile {
   display: none;
 }
+
+
+/* lnb */
 
 .lnbMain {
   position: fixed;
@@ -253,24 +271,12 @@
   }
 }
 
-.gnb_toggle_btn {
-  width: 40px;
-  height: 40px;
-  border-radius: 10px;
-  border: 1px solid white;
-  transform: rotate(45deg);
-  transition: 0.5s ease-in-out;
-  &:hover {
-    transform: rotate(-180deg);
-  }
-}
-
 /* main_banner */
+
 .main_banner {
   position: relative;
   width: 100%;
   height: 916px;
-  /* background-image: url(../img/img/bg.png); */
   z-index: 0;
   transition: all 0.3s;
   &::before {
@@ -431,7 +437,6 @@
 
 .AM_inner_text {
   display: inline-block;
-  /* font-family: "IBM Plex Mono", monospace; */
   font-family: "Inter", sans-serif;
   font-weight: 400;
   font-style: normal;
@@ -443,6 +448,8 @@
   margin-top: 270px;
   margin-left: 58px;
 }
+
+/* inner_text styles */
 
 .AM_inner_info {
   margin-left: 100px;
@@ -580,7 +587,7 @@
   z-index: 1;
 }
 
-/* -- toggled -- */
+/* -- Toggled -- */
 
 .MBTI_contents {
   width: 1550px;
@@ -682,6 +689,9 @@
   width: 90%;
   animation-delay: 0.8s;
 }
+
+
+/* left_half */
 
 #About_Me .left_half {
   display: flex;
@@ -819,6 +829,8 @@
   }
 }
 
+/* Cards */
+
 .H_card {
   width: 448px;
   height: 750px;
@@ -948,8 +960,6 @@
     border-radius: 100%;
     transform: translateX(-10px);
   }
-  /* 위치확인용 */
-  /* border: 1px solid #f00; */
 }
 
 .img_slide_arrow .slide_arrow.right {
@@ -967,8 +977,6 @@
     border-radius: 100%;
     transform: translateX(10px);
   }
-  /* 위치확인용 */
-  /* border: 1px solid #f00; */
 }
 
 .img_slide_arrow .slide_arrow i {
@@ -1006,8 +1014,6 @@
     background: rgba(0, 0, 0, 0.3);
     border-radius: 100%;
   }
-  /* 위치확인용 */
-  /* border: 1px solid #f00; */
 }
 
 .card_slide_arrow .slide_arrow.right {
@@ -1023,8 +1029,6 @@
     background: #212121;
     border-radius: 100%;
   }
-  /* 위치확인용 */
-  /* border: 1px solid #f00; */
 }
 
 .card_slide_arrow .slide_arrow i {
@@ -1076,7 +1080,7 @@
     width: 50px;
     height: 5px;
     background: #d9d9d9;
-    /* 숫자를 안보이게함. html태그내의 내용을 지워도 되지만 그럴경우 첨보는 사람이 볼때 비어있는 태그가 이상하게 보이므로 코드의 재사용성이 떨어짐. 다음과 같은 방법으로 없애는걸 권장 */
+    /* Hide text */
     text-indent: -9999px;
   }
 }
@@ -1084,6 +1088,8 @@
 .m_card_pager {
   display: none;
 }
+
+/* Vision */
 
 #Vision {
   width: 100%;
@@ -1239,6 +1245,8 @@
   display: none;
 }
 
+/* Footer */
+
 footer {
   width: 100%;
   height: 1080px;
@@ -1248,7 +1256,6 @@ footer {
 .Footer_bg {
   width: 100%;
   height: 1080px;
-  /* background: url("../img/img/bg.png"); */
   filter: blur(10px);
 }
 
@@ -1392,7 +1399,6 @@ input {
   &::placeholder {
     color: white;
     font-family: "Poppins", sans-serif;
-    /* font-size: 18px; */
   }
   &[type="submit"] {
     color: white;
@@ -1440,6 +1446,8 @@ textarea {
   }
 }
 
+/* Top Button */
+
 .topBtn {
   position: absolute;
   bottom: 30px;
@@ -1452,6 +1460,8 @@ textarea {
     transform: translateY(-10px);
   }
 }
+
+/* Mobile */
 
 @media screen and (max-width: 1190px) and (min-width: 360px) {
   #wrapper {
@@ -1480,6 +1490,8 @@ textarea {
     width: 100%;
     height: 380px;
   }
+
+  /* Mobile gnb */
 
   .gnb_container {
     z-index: 200;
@@ -1580,6 +1592,8 @@ textarea {
     cursor: pointer;
   }
 
+  /* Mobile Video Banner */
+
   .main_banner {
     width: 100%;
     height: 320px;
@@ -1617,6 +1631,8 @@ textarea {
     }
   }
 
+  /* Mobile scroll_indicator */
+
   .scroll_indicator_container {
     width: 52px;
     height: 30px;
@@ -1633,7 +1649,7 @@ textarea {
     }
   }
 
-  /* About Me */
+  /* Mobile About Me */
 
   #About_Me_container {
     width: 100%;
@@ -1803,7 +1819,6 @@ textarea {
     position: relative;
     overflow: visible;
     .mbti_mobile_btn {
-      /* margin-top: 32px; */
       width: 136px;
       height: 42px;
       border: none;
@@ -1852,7 +1867,6 @@ textarea {
 
   .mobile_mbti_toggle_inner {
     position: absolute;
-    /* transform: translateX(100%); */
   }
 
   .mobile_mbti_close_btn {
@@ -1942,7 +1956,7 @@ textarea {
     animation-delay: 0.8s;
   }
 
-  /* Hobbies */
+  /* Mobile Hobbies */
 
   #Hobbies {
     width: 100%;
@@ -1960,6 +1974,8 @@ textarea {
   .H_contents_title {
     font-size: 30px;
   }
+
+  /* Mobile Cards */
 
   .H_card_container {
     left: 270px;
@@ -2038,6 +2054,7 @@ textarea {
   }
 
   /* Mobile Card Pagers & Arrows */
+
   .img_slide_arrow {
     display: flex;
     width: 100%;
@@ -2063,8 +2080,6 @@ textarea {
       border-radius: 100%;
       transform: translateX(-3px);
     }
-    /* 위치확인용 */
-    /* border: 1px solid #f00; */
   }
 
   .img_slide_arrow .slide_arrow.right {
@@ -2083,8 +2098,6 @@ textarea {
       border-radius: 100%;
       transform: translateX(3px);
     }
-    /* 위치확인용 */
-    /* border: 1px solid #f00; */
   }
 
   .img_slide_arrow .slide_arrow i {
@@ -2146,8 +2159,6 @@ textarea {
       transform: translateX(-1px);
       background: none;
     }
-    /* 위치확인용 */
-    /* border: 1px solid #f00; */
   }
 
   .card_slide_arrow .slide_arrow.right {
@@ -2164,8 +2175,6 @@ textarea {
       transform: translateX(1px);
       background: none;
     }
-    /* 위치확인용 */
-    /* border: 1px solid #f00; */
   }
 
   .card_slide_arrow .slide_arrow i {
@@ -2196,7 +2205,6 @@ textarea {
       width: 30px;
       height: 4px;
       background: #d9d9d9;
-      /* 숫자를 안보이게함. html태그내의 내용을 지워도 되지만 그럴경우 첨보는 사람이 볼때 비어있는 태그가 이상하게 보이므로 코드의 재사용성이 떨어짐. 다음과 같은 방법으로 없애는걸 권장 */
       text-indent: -9999px;
       &.active {
         background: #555;
@@ -2204,7 +2212,8 @@ textarea {
     }
   }
 
-  /* #Vision */
+  /* Mpbile Vision */
+
   #Vision {
     width: 100%;
     height: 520px;
@@ -2293,6 +2302,8 @@ textarea {
       background: #555;
     }
   }
+
+  /* Mobile Footer */
 
   footer {
     height: 840px;
@@ -2407,6 +2418,8 @@ textarea {
       padding: 0;
     }
   }
+
+  /* Mobile Top Button */
 
   .topBtn {
     font-size: 0.6em;

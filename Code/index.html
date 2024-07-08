@@ -21,6 +21,7 @@
     <script defer type="module" src="script.js"></script>
   </head>
   <body>
+    <!-- Preloader -->
     <div id="loading_screen">
       <div class="loader">
         <div class="loader-1 bar"></div>
@@ -61,9 +62,15 @@
         </div>
       </div>
     </div>
+
     <div id="wrapper">
+      <!-- Scroll Progress Indicator -->
       <div class="scroll_watcher"></div>
+
+      <!-- Menu Button while Scrolling -->
       <div class="scroll_toggle_btn"></div>
+
+      <!-- main -->
       <section id="main">
         <!-- gnb -->
         <header class="gnb_container">
@@ -84,6 +91,7 @@
             <li class="gnb_toggle_btn"></li>
           </ul>
 
+          <!-- Mobile ver. gnb -->
           <ul class="gnbMobile">
             <li>
               <span>GSTR</span>
@@ -92,8 +100,8 @@
             <li class="gnb_toggle_btn"></li>
           </ul>
         </header>
-        <!-- main -->
 
+        <!-- lnb -->
         <ul class="lnbMain">
           <div class="lnb_close_btn">
             <span>Close</span>
@@ -105,6 +113,7 @@
           <li><a href="#Footer">Contact</a></li>
         </ul>
 
+        <!-- Video Banner -->
         <section class="main_banner">
           <video class="bg_video" autoplay muted loop>
             <source
@@ -116,12 +125,16 @@
             <span class="firstTitle"></span>
             <span class="secondTitle"></span>
           </p>
+
+          <!-- Scroll Indicator -->
           <div class="scroll_indicator_container">
             <span>scroll</span>
             <img src="../img/img/Indicator.png" alt="scrollIndicator" />
           </div>
         </section>
       </section>
+
+      <!-- About Me -->
       <section id="About_Me_container">
         <article id="About_Me" class="scrl">
           <article class="About_Me_contents">
@@ -236,6 +249,8 @@
             </article>
           </article>
         </article>
+
+        <!-- Moblie ver. About Me -->
         <section id="mobile_mbti_container">
           <article id="mobile_mbti" class="scrl">
             <div class="mm_inner">
@@ -308,11 +323,15 @@
           </article>
         </section>
       </section>
+
+      <!-- Hobbies -->
       <section id="Hobbies" class="scrl">
         <article class="H_contents">
           <div class="H_contents_title">
             <h1>//취미<span>생활</span></h1>
           </div>
+
+          <!-- Cards -->
           <div class="H_card_container">
             <div class="H_card 1">
               <div class="card_inner_img first">
@@ -437,6 +456,8 @@
               </div>
             </div>
           </div>
+
+          <!-- Mobile Cards Pager -->
           <div class="m_card_pager">
             <span class="active">1</span>
             <span>2</span>
@@ -444,6 +465,8 @@
           </div>
         </article>
       </section>
+
+      <!-- Vision -->
       <section id="Vision" class="scrl">
         <article class="V_contents">
           <div class="V_contents_title">
@@ -484,6 +507,8 @@
           <span>2</span>
         </div>
       </section>
+
+      <!-- Contact -->
       <footer id="Footer" class="scrl">
         <section class="Footer_bg">
           <video class="bg_video" autoplay muted loop>
