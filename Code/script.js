@@ -635,6 +635,20 @@ Vcard2.addEventListener("mouseout", function () {
   Vcard_img2.style.backgroundImage = `url(../img/img/${nintendoImg[0]})`;
 });
 
+const mediaQuery = window.matchMedia('(max-width : 1190px)');
+
+mediaQuery.addEventListener('change', (e) => {
+  if(e.matches){
+    Vcard1.style = "transform : none";
+  }
+});
+
+
+  if(mediaQuery.matches){
+    Vcard1.style = "transform : none";
+    Vcard1.classList.add("remove");
+  }
+
 // Mobile Vision Event
 
 const vContainer = document.querySelector(".V_card_container");
