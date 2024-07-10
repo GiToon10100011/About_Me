@@ -1,5 +1,13 @@
 @import url("./reset.css");
 
+body{
+  overflow-x: hidden;
+}
+
+.blur > :not(.lnbMain){
+  filter: blur(5px);
+}
+
 #wrapper {
   position: relative;
   width: 100%;
@@ -76,7 +84,7 @@
 
 #main {
   width: 100%;
-  height: 1080px;
+  height: 1020px;
   position: relative;
   overflow: hidden;
 }
@@ -92,7 +100,7 @@
   background: #000;
   color: white;
   pointer-events: none;
-  z-index: 1000;
+  z-index: 1000000;
   .loader {
     position: absolute;
     top: 50%;
@@ -147,7 +155,7 @@
 
 .gnb_container {
   width: 100%;
-  height: 165px;
+  height: 120px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -161,28 +169,32 @@
 }
 
 .gnb_logo {
-  width: 80px;
-  height: 80px;
-  background: url("../img/img/Logo.png");
-  margin-left: 40px;
+  width: 60px;
+  height: 60px;
+  background: url("../img/img/Logo.png")center/cover no-repeat;
+  margin-left: 140px;
   cursor: pointer;
+  transition: all 0.6s;
+  &:hover{
+    transform: rotateY(180deg);
+  }
 }
 
 .gnbDesktop {
+  margin-right: 45px;
   width: 882px;
   height: 56px;
-  margin-right: 40px;
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 80px;
+  gap: 60px;
   color: white;
   &:hover li a {
     opacity: 0.7;
   }
   li {
     font-size: 30px;
-    letter-spacing: 4px;
+    letter-spacing: 1px;
     a {
       transition: all 0.3s;
       &:hover {
@@ -193,9 +205,9 @@
 }
 
 .gnb_toggle_btn {
-  width: 40px;
-  height: 40px;
-  border-radius: 10px;
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
   border: 1px solid white;
   transform: rotate(45deg);
   transition: 0.5s ease-in-out;
@@ -227,7 +239,7 @@
   transition: all 0.5s;
   
   li {
-    font-size: 80px;
+    font-size: 60px;
     color: transparent;
     width: 100%;
     a {
@@ -269,6 +281,10 @@
       opacity: 1;
     }
   }
+}
+
+.lnbMobileGnbContainer{
+  display: none;
 }
 
 /* main_banner */
@@ -453,6 +469,9 @@
 
 .AM_inner_info {
   margin-left: 100px;
+  &:hover .inner_info_birth{
+    transform: translateY(-4px);
+  }
 }
 
 .inner_text_title {
@@ -836,7 +855,7 @@
   height: 750px;
   border-radius: 20px;
   box-shadow: 0px 0px 29.6px rgba(0, 0, 0, 0.7);
-  transition: all 0.6s ease-in-out;
+  transition: all 0.6s ease;
   cursor: pointer;
   &.active {
     cursor: auto;
@@ -864,6 +883,10 @@
       transform: translateX(-123%) translateY(-13%) rotateY(360deg) scale(1.3);
     }
   }
+
+  &:hover{
+    transform: translateY(-20px);
+  }
 }
 
 .card_inner_img {
@@ -882,6 +905,7 @@
   align-items: center;
   text-align: center;
   background: #393939;
+  border-radius: 0 0 20px 20px;
   gap: 30px;
 }
 
@@ -1344,6 +1368,7 @@ footer {
     transition: all 0.3s;
     &:hover{
       color: rgba(255, 255, 255, 0.8);
+      transform: translateY(-4px);
     }
   }
 }
@@ -1413,6 +1438,13 @@ input {
     left: 60px;
     bottom: -40px;
     cursor: pointer;
+    transition: all 0.3s;
+
+    &:hover{
+      border: 1px solid #333;
+      color: #333;
+      background: rgba(255, 255, 255, 0.856);
+    }
   }
 }
 
@@ -1590,6 +1622,24 @@ textarea {
     color: white;
     background: url("../img/img/Logo.png") center/cover no-repeat;
     cursor: pointer;
+  }
+
+  .lnbMobileGnbContainer{
+    z-index: 199;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 1;
+    transition: all 0.3s;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.2);
+    &.unlock {
+      opacity: 0;
+      background: #222;
+    }
   }
 
   /* Mobile Video Banner */
@@ -2022,6 +2072,9 @@ textarea {
         transform: none;
       }
     }
+    &:hover{
+      transform: none;
+    }
   }
 
   .card_inner_img {
@@ -2356,6 +2409,7 @@ textarea {
     i{
       &:hover, &:active{
         color: rgba(255, 255, 255, 0.8);
+        transform: none;
       }
     }
   }
@@ -2423,6 +2477,7 @@ textarea {
 
   .topBtn {
     font-size: 0.6em;
+    right: 16px;
     &:hover {
       transform: translateY(-2px);
     }

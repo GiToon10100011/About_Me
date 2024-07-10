@@ -164,6 +164,7 @@ window.addEventListener("scroll", () => {
   if (window.scrollY > 200) {
     menuToggle.classList.add("active");
     main_gnb.classList.add("unlock");
+    MobileLnbGnb.classList.add("unlock");
   } else {
     menuToggle.classList.remove("active");
     main_gnb.classList.remove("unlock");
@@ -171,6 +172,7 @@ window.addEventListener("scroll", () => {
 
   if (lnbMain.classList.contains("active")) {
     main_gnb.classList.remove("unlock");
+    MobileLnbGnb.classList.remove("unlock");
   }
 });
 
@@ -181,32 +183,51 @@ startSlideShow();
 const lnbMain = document.querySelector(".lnbMain");
 const gnbToggleBtn = document.querySelector(".gnb_toggle_btn");
 const M_gnbToggleBtn = document.querySelector(".gnbMobile .gnb_toggle_btn");
+const M_lnbToggleBtn = document.querySelector(".lnbMobileGnbContainer .gnb_toggle_btn");
 const lnb_close_btn = document.querySelector(".lnb_close_btn");
 const main_gnb = document.querySelector(".gnb_container");
 const main_banner = document.querySelector(".main_banner");
 const wrapper_filter = document.querySelector("#wrapper");
 const scroll_menu_btn = document.querySelector(".scroll_toggle_btn");
+const MobileLnbGnb = document.querySelector(".lnbMobileGnbContainer");
 
 gnbToggleBtn.addEventListener("click", () => {
   lnbMain.classList.add("active");
+  wrapper_filter.classList.add("blur");
 });
 
 lnb_close_btn.addEventListener("click", () => {
   lnbMain.classList.remove("active");
   main_gnb.style.background = "#111";
+  wrapper_filter.classList.remove("blur");
 });
 
 scroll_menu_btn.addEventListener("click", () => {
   const M_Header = document.querySelector(".gnb_container");
   lnbMain.classList.add("active");
   main_gnb.classList.remove("unlock");
+  MobileLnbGnb.classList.remove("unlock");
   M_Header.style.background = "#222";
+  MobileLnbGnb.style.background = "#222";
+  wrapper_filter.classList.add("blur");
 });
 
 M_gnbToggleBtn.addEventListener("click", () => {
   const M_Header = document.querySelector(".gnb_container");
   M_Header.style.background = "#222";
   lnbMain.classList.toggle("active");
+  wrapper_filter.classList.remove("blur");
+  // active클래스를 보유중인지 확인하는 contains 속성
+  if (!lnbMain.classList.contains("active")) {
+    M_Header.style.background = "#111";
+  }
+});
+
+M_lnbToggleBtn.addEventListener("click", () => {
+  const M_Header = document.querySelector(".gnb_container");
+  M_Header.style.background = "#222";
+  lnbMain.classList.toggle("active");
+  wrapper_filter.classList.remove("blur");
   // active클래스를 보유중인지 확인하는 contains 속성
   if (!lnbMain.classList.contains("active")) {
     M_Header.style.background = "#111";
@@ -245,6 +266,7 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
     const lnbMain = document.querySelector(".lnbMain");
     lnbMain.classList.remove("active");
     main_gnb.classList.remove("open");
+    wrapper_filter.classList.remove("blur");
     main_banner.classList.remove("open");
     if (!lnbMain.classList.contains("active")) {
       M_Header.style.background = "#111";
@@ -600,45 +622,65 @@ const nintendoImg = ["Nintendo.png", "ColorNintendo.png"];
 Vcard_img1.style.backgroundImage = `url(../img/img/${discordImg[0]})`;
 Vcard_img2.style.backgroundImage = `url(../img/img/${nintendoImg[0]})`;
 
-Vcard1.addEventListener("mousemove", function (e) {
-  const x = e.offsetX;
-  const y = e.offsetY;
-  const rotateY = (-1 / 25) * x + 20;
-  const rotateX = (1 / 19) * y - 20;
-  Vcard1.style = `transform : perspective(1500px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
-  Vcard_img1.style.backgroundImage = `url(../img/img/${discordImg[1]})`;
-});
-
-Vcard2.addEventListener("mousemove", function (e) {
-  const x = e.offsetX;
-  const y = e.offsetY;
-  const rotateY = (-1 / 25) * x + 20;
-  const rotateX = (1 / 19) * y - 20;
-  Vcard2.style = `transform : perspective(1500px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
-  Vcard_img2.style.backgroundImage = `url(../img/img/${nintendoImg[1]})`;
-});
-
-Vcard1.addEventListener("mouseout", function () {
-  Vcard1.style = "transform : perspective(350px) rotateY(0deg) rotateX(0deg)";
-  Vcard_img1.style.backgroundImage = `url(../img/img/${discordImg[0]})`;
-});
-Vcard2.addEventListener("mouseout", function () {
-  Vcard2.style = "transform : perspective(350px) rotateY(0deg) rotateX(0deg)";
-  Vcard_img2.style.backgroundImage = `url(../img/img/${nintendoImg[0]})`;
-});
-
 const mediaQuery = window.matchMedia("(max-width : 1190px)");
+
+const handleMouseMoveVcard1 = (e) => {
+  const x = e.offsetX;
+  const y = e.offsetY;
+  const rotateY = (-1 / 25) * x + 20;
+  const rotateX = (1 / 19) * y - 20;
+  Vcard1.style.transform = `perspective(1500px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+  Vcard_img1.style.backgroundImage = `url(../img/img/${discordImg[1]})`;
+};
+
+const handleMouseMoveVcard2 = (e) => {
+  const x = e.offsetX;
+  const y = e.offsetY;
+  const rotateY = (-1 / 25) * x + 20;
+  const rotateX = (1 / 19) * y - 20;
+  Vcard2.style.transform = `perspective(1500px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+  Vcard_img2.style.backgroundImage = `url(../img/img/${nintendoImg[1]})`;
+};
+
+const handleMouseOutVcard1 = () => {
+  Vcard1.style.transform = "perspective(350px) rotateY(0deg) rotateX(0deg)";
+  Vcard_img1.style.backgroundImage = `url(../img/img/${discordImg[0]})`;
+};
+
+const handleMouseOutVcard2 = () => {
+  Vcard2.style.transform = "perspective(350px) rotateY(0deg) rotateX(0deg)";
+  Vcard_img2.style.backgroundImage = `url(../img/img/${nintendoImg[0]})`;
+};
+
+const addMouseEvents = () => {
+  Vcard1.addEventListener("mousemove", handleMouseMoveVcard1);
+  Vcard1.addEventListener("mouseout", handleMouseOutVcard1);
+  Vcard2.addEventListener("mousemove", handleMouseMoveVcard2);
+  Vcard2.addEventListener("mouseout", handleMouseOutVcard2);
+};
+
+const removeMouseEvents = () => {
+  Vcard1.removeEventListener("mousemove", handleMouseMoveVcard1);
+  Vcard1.removeEventListener("mouseout", handleMouseOutVcard1);
+  Vcard2.removeEventListener("mousemove", handleMouseMoveVcard2);
+  Vcard2.removeEventListener("mouseout", handleMouseOutVcard2);
+  Vcard1.style.transform = "none";
+  Vcard2.style.transform = "none";
+};
+
+if (mediaQuery.matches) {
+  removeMouseEvents();
+} else {
+  addMouseEvents();
+}
 
 mediaQuery.addEventListener("change", (e) => {
   if (e.matches) {
-    Vcard1.style = "transform : none";
+    removeMouseEvents();
+  } else {
+    addMouseEvents();
   }
 });
-
-if (mediaQuery.matches) {
-  Vcard1.style = "transform : none";
-  Vcard1.classList.add("remove");
-}
 
 // Mobile Vision Slide Event
 
