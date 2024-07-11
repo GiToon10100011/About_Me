@@ -4,8 +4,14 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Who am I?</title>
-    <link rel="shortcut icon" href="//ecimg.cafe24img.com/pg1108b74246837003/tyler10034/About_Me/Logo.ico" />
-    <link rel="apple-touch-icon-precomposed" href="//ecimg.cafe24img.com/pg1108b74246837003/tyler10034/About_Me/Logo.ico" />
+    <link
+      rel="shortcut icon"
+      href="//ecimg.cafe24img.com/pg1108b74246837003/tyler10034/About_Me/Logo.ico"
+    />
+    <link
+      rel="apple-touch-icon-precomposed"
+      href="//ecimg.cafe24img.com/pg1108b74246837003/tyler10034/About_Me/Logo.ico"
+    />
 
     <!-- opengraph 지정 -->
     <meta property="og:title" content="[Who am I?] Project 01" />
@@ -32,7 +38,7 @@
 
     <!-- Custom CSS & js -->
     <link rel="stylesheet" href="./style.css" />
-    <script defer type="module" src="script.js"></script>
+    <script defer type="module" src="./script.js"></script>
   </head>
   <body>
     <!-- Preloader -->
@@ -80,6 +86,9 @@
     <div id="wrapper">
       <!-- Scroll Progress Indicator -->
       <div class="scroll_watcher"></div>
+      <div class="mainTop">
+        <a href="#main"><i class="fa-solid fa-angles-up"></i></a>
+      </div>
 
       <!-- Menu Button while Scrolling -->
       <div class="scroll_toggle_btn"></div>
@@ -88,7 +97,7 @@
       <section id="main">
         <!-- gnb -->
         <header class="gnb_container">
-          <a href = "" class="gnb_logo"></a>
+          <a href="" class="gnb_logo"></a>
           <ul class="gnbDesktop">
             <li>
               <a href="#About_Me">Info</a>
@@ -115,12 +124,11 @@
           </ul>
         </header>
 
-        
         <!-- Video Banner -->
         <section class="main_banner">
-          <video class="bg_video" autoplay muted loop>
+          <video class="bg_video" autoplay muted loop playsinline>
             <source
-            src="../img/img/vecteezy_vintage-abstract-black-white-wave-background_26305040.mp4"
+              src="./img/img/vecteezy_vintage-abstract-black-white-wave-background_26305040.mp4"
               type="video/mp4"
             />
           </video>
@@ -128,11 +136,11 @@
             <span class="firstTitle"></span>
             <span class="secondTitle"></span>
           </p>
-          
+
           <!-- Scroll Indicator -->
           <div class="scroll_indicator_container">
             <span>scroll</span>
-            <img src="../img/img/Indicator.png" alt="scrollIndicator" />
+            <img src="./img/img/Indicator.png" alt="scrollIndicator" />
           </div>
         </section>
       </section>
@@ -180,7 +188,7 @@
                   <span>하단의 버튼을 눌러 확인해보세요!</span>
                 </div>
                 <div class="mbti_img">
-                  <img src="../img/img/image 2.png" alt="" />
+                  <img src="./img/img/image 2.png" alt="" />
                 </div>
                 <div class="mbti_toggle_btn">
                   <input type="button" value="상세정보" />
@@ -243,7 +251,7 @@
                   <span>용감한 수호자, 실용적인 조력가</span>
                 </div>
                 <div class="mbti_img">
-                  <img src="../img/img/image 2.png" alt="" />
+                  <img src="./img/img/image 2.png" alt="" />
                 </div>
                 <div class="mbti_toggle_btn AM_desc_btn">
                   <input type="button" value="인적사항" />
@@ -263,7 +271,7 @@
               </div>
             </div>
             <div class="mbti_img">
-              <img src="../img/img/image 2.png" alt="" />
+              <img src="./img/img/image 2.png" alt="" />
             </div>
             <div class="m_mbti_toggle_btn">
               <button class="mbti_mobile_btn">상세정보</button>
@@ -329,6 +337,12 @@
 
       <!-- Hobbies -->
       <section id="Hobbies" class="scrl">
+        <div class="click_indicator">
+          <span
+            >Click <i class="fa-solid fa-arrow-right"></i><br />the Cards!</span
+          >
+        </div>
+
         <article class="H_contents">
           <div class="H_contents_title">
             <h1>//취미<span>생활</span></h1>
@@ -514,9 +528,9 @@
       <!-- Contact -->
       <footer id="Footer" class="scrl">
         <section class="Footer_bg">
-          <video class="bg_video" autoplay muted loop>
+          <video class="bg_video" autoplay muted loop playsinline>
             <source
-              src="../img/img/vecteezy_vintage-abstract-black-white-wave-background_26305040.mp4"
+              src="./img/img/vecteezy_vintage-abstract-black-white-wave-background_26305040.mp4"
               type="video/mp4"
             />
           </video>
@@ -568,7 +582,7 @@
               <input type="text" name="Name" id="Name" placeholder="Name" />
               <input type="text" name="Email" id="Email" placeholder="Email" />
               <input
-              type="text"
+                type="text"
                 name="Mobile"
                 id="Mobile"
                 placeholder="Mobile"
@@ -587,7 +601,7 @@
         </section>
       </footer>
     </div>
-    
+
     <!-- lnb -->
     <div class="lnbMobileGnbContainer">
       <ul class="gnbMobile">

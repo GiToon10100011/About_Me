@@ -161,13 +161,16 @@ window.addEventListener("scroll", () => {
 
 window.addEventListener("scroll", () => {
   const menuToggle = document.querySelector(".scroll_toggle_btn");
+  const mainTop = document.querySelector(".mainTop");
   if (window.scrollY > 200) {
     menuToggle.classList.add("active");
     main_gnb.classList.add("unlock");
     MobileLnbGnb.classList.add("unlock");
+    mainTop.classList.add("active");
   } else {
     menuToggle.classList.remove("active");
     main_gnb.classList.remove("unlock");
+    mainTop.classList.remove("active");
   }
 
   if (lnbMain.classList.contains("active")) {
@@ -325,12 +328,16 @@ mbti_close_btn.addEventListener("click", () => {
   mbti_toggle_page.classList.remove("active");
 });
 
+// Hobbies Card Event
+
 const cards = document.querySelectorAll(".H_card");
 const H_bg = document.querySelector("#Hobbies");
 const card_container = document.querySelector(".H_card_container");
+const clicker = document.querySelector(".click_indicator");
 
 cards.forEach((item, index) => {
   item.addEventListener("click", () => {
+    clicker.innerHTML = "Click the <br>blank space"
     cards.forEach((card, i) => {
       if (i !== index) {
         card.classList.remove("active");
@@ -345,6 +352,7 @@ cards.forEach((item, index) => {
 
 H_bg.addEventListener("click", (event) => {
   if (event.target === H_bg) {
+    clicker.classList.add("active");
     cards.forEach((item) => {
       item.classList.remove("active");
     });
@@ -354,6 +362,7 @@ H_bg.addEventListener("click", (event) => {
 card_container.addEventListener("click", (event) => {
   if (event.target === card_container) {
     cards.forEach((item) => {
+      clicker.classList.add("active");
       item.classList.remove("active");
     });
   }
@@ -389,9 +398,9 @@ let imgIndex1 = 0;
 let imgIndex2 = 0;
 let imgIndex3 = 0;
 
-slideImg1.style.backgroundImage = `url(../img/img/${pics1[imgIndex1]})`;
-slideImg2.style.backgroundImage = `url(../img/img/${pics2[imgIndex2]})`;
-slideImg3.style.backgroundImage = `url(../img/img/${pics3[imgIndex3]})`;
+slideImg1.style.backgroundImage = `url(./img/img/${pics1[imgIndex1]})`;
+slideImg2.style.backgroundImage = `url(./img/img/${pics2[imgIndex2]})`;
+slideImg3.style.backgroundImage = `url(./img/img/${pics3[imgIndex3]})`;
 
 imgPagers1[0].classList.add("active");
 imgPagers2[0].classList.add("active");
@@ -401,7 +410,7 @@ const updateImg1 = (imgIndex1) => {
   imgPagers1.forEach((item) => {
     item.classList.remove("active");
   });
-  slideImg1.style.backgroundImage = `url(../img/img/${pics1[imgIndex1]})`;
+  slideImg1.style.backgroundImage = `url(./img/img/${pics1[imgIndex1]})`;
   imgPagers1[imgIndex1].classList.add("active");
 };
 
@@ -409,7 +418,7 @@ const updateImg2 = (imgIndex2) => {
   imgPagers2.forEach((item) => {
     item.classList.remove("active");
   });
-  slideImg2.style.backgroundImage = `url(../img/img/${pics2[imgIndex2]})`;
+  slideImg2.style.backgroundImage = `url(./img/img/${pics2[imgIndex2]})`;
   imgPagers2[imgIndex2].classList.add("active");
 };
 
@@ -417,7 +426,7 @@ const updateImg3 = (imgIndex3) => {
   imgPagers3.forEach((item) => {
     item.classList.remove("active");
   });
-  slideImg3.style.backgroundImage = `url(../img/img/${pics3[imgIndex3]})`;
+  slideImg3.style.backgroundImage = `url(./img/img/${pics3[imgIndex3]})`;
   imgPagers3[imgIndex3].classList.add("active");
 };
 
@@ -619,8 +628,8 @@ const Vcard_img2 = document.querySelector(".V_card_inner_img.second");
 const discordImg = ["Discord.png", "ColorDiscord.png"];
 const nintendoImg = ["Nintendo.png", "ColorNintendo.png"];
 
-Vcard_img1.style.backgroundImage = `url(../img/img/${discordImg[0]})`;
-Vcard_img2.style.backgroundImage = `url(../img/img/${nintendoImg[0]})`;
+Vcard_img1.style.backgroundImage = `url(./img/img/${discordImg[0]})`;
+Vcard_img2.style.backgroundImage = `url(./img/img/${nintendoImg[0]})`;
 
 const mediaQuery = window.matchMedia("(max-width : 1190px)");
 
@@ -630,7 +639,7 @@ const handleMouseMoveVcard1 = (e) => {
   const rotateY = (-1 / 25) * x + 20;
   const rotateX = (1 / 19) * y - 20;
   Vcard1.style.transform = `perspective(1500px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
-  Vcard_img1.style.backgroundImage = `url(../img/img/${discordImg[1]})`;
+  Vcard_img1.style.backgroundImage = `url(./img/img/${discordImg[1]})`;
 };
 
 const handleMouseMoveVcard2 = (e) => {
@@ -639,17 +648,17 @@ const handleMouseMoveVcard2 = (e) => {
   const rotateY = (-1 / 25) * x + 20;
   const rotateX = (1 / 19) * y - 20;
   Vcard2.style.transform = `perspective(1500px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
-  Vcard_img2.style.backgroundImage = `url(../img/img/${nintendoImg[1]})`;
+  Vcard_img2.style.backgroundImage = `url(./img/img/${nintendoImg[1]})`;
 };
 
 const handleMouseOutVcard1 = () => {
   Vcard1.style.transform = "perspective(350px) rotateY(0deg) rotateX(0deg)";
-  Vcard_img1.style.backgroundImage = `url(../img/img/${discordImg[0]})`;
+  Vcard_img1.style.backgroundImage = `url(./img/img/${discordImg[0]})`;
 };
 
 const handleMouseOutVcard2 = () => {
   Vcard2.style.transform = "perspective(350px) rotateY(0deg) rotateX(0deg)";
-  Vcard_img2.style.backgroundImage = `url(../img/img/${nintendoImg[0]})`;
+  Vcard_img2.style.backgroundImage = `url(./img/img/${nintendoImg[0]})`;
 };
 
 const addMouseEvents = () => {
