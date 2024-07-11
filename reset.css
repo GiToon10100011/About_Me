@@ -28,8 +28,22 @@
 
 @font-face {
   font-family: "Kiona";
-  src: url("../Fonts/Fonts/Kiona-Regular.ttf") format("ttf");
+  src: url("//ecimg.cafe24img.com/pg1108b74246837003/tyler10034/About_Me/Kiona-Regular.ttf")
+    format("ttf");
   font-weight: 400;
+}
+
+@font-face {
+  font-family: "kionaregular";
+  src: url("./Fonts/Fonts/kiona-regular-webfont.eot");
+  src: url("./Fonts/Fonts/kiona-regular-webfont.eot?#iefix")
+      format("embedded-opentype"),
+    url("./Fonts/Fonts/kiona-regular-webfont.woff2") format("woff2"),
+    url("./Fonts/Fonts/kiona-regular-webfont.woff") format("woff"),
+    url("./Fonts/Fonts/kiona-regular-webfont.ttf") format("truetype"),
+    url("./Fonts/Fonts/kiona-regular-webfont.svg#kionaregular") format("svg");
+  font-weight: normal;
+  font-style: normal;
 }
 
 /* Variables */
